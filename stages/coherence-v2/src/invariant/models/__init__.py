@@ -1,0 +1,1 @@
+"""Independent quantitative model architectures."""

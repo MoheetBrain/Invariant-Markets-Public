@@ -1,0 +1,191 @@
+version: 1
+notes:
+  - "Source metadata is limited to public/candidate information available for S2b-a."
+  - "Missing exact citation fields are marked UNKNOWN rather than invented."
+sources:
+  SRC_CORRELATION_001:
+    title: "Venture Outcomes are Even More Skewed Than You Think / Correlation Ventures return summary"
+    organisation_authors: "Correlation Ventures, publicly summarized by Seth Levine"
+    year: 2014
+    geography: "Predominantly United States"
+    sample_definition: "Public summary of approximately 21,000 venture financings/investments."
+    unit_of_observation: "Financing-level investment or deal observation; exact de-duplication by company unverified."
+    variable_measured: "Investment-level gross return multiple thresholds."
+    public_or_proprietary: "Public summary of proprietary/private dataset"
+    raw_data_accessible: false
+    source_url: "https://sethlevine.com/archives/2014/08/venture-outcomes-are-even-more-skewed-than-you-think.html"
+    values_used:
+      below_1x: 0.65
+      above_5x: 0.10
+      above_10x: 0.04
+      above_50x: 0.004
+    provenance_classification: "OBSERVED_AGGREGATE"
+    known_biases:
+      - "Rounded public percentages."
+      - "May include multiple financings from one company."
+      - "Sample period, inclusion rules and realized/unrealized handling require further audit."
+    notes:
+      - "Used as aggregate marginal constraints for investor-level terminal MOIC, not as company survival data."
+  SRC_CORRELATION_002:
+    title: "Correlation Ventures realized-deal decomposition"
+    organisation_authors: "Correlation Ventures, public secondary summaries"
+    year: "UNKNOWN"
+    geography: "Predominantly United States"
+    sample_definition: "Approximately 7,976 realized venture deals in a public summary."
+    unit_of_observation: "Realized deal / financing observation; exact relation to unique companies unverified."
+    variable_measured: "Out-of-business, sub-capital-return and above-capital-return categories."
+    public_or_proprietary: "Public summary of proprietary/private dataset"
+    raw_data_accessible: false
+    source_url: "UNKNOWN"
+    values_used:
+      out_of_business_proxy: 0.39
+      positive_below_1x_proxy: 0.29
+      above_1x_proxy: 0.32
+    provenance_classification: "PROXY"
+    known_biases:
+      - "Out of business is not identical to investor MOIC equals zero."
+      - "Rounded aggregate categories do not exactly reconcile with SRC_CORRELATION_001."
+    notes:
+      - "Used only to split the <1x mass into complete-loss proxy and partial-loss mass."
+  SRC_ANGELLIST_001:
+    title: "What AngelList Data Says About Power-Law Returns In Venture Capital"
+    organisation_authors: "AngelList"
+    year: 2019
+    geography: "Early-stage venture investments on AngelList; geography not fully audited here."
+    sample_definition: "Positive early-stage investment returns in AngelList curated data."
+    unit_of_observation: "Investment return observation."
+    variable_measured: "Power-law behavior of positive early-stage investment returns."
+    public_or_proprietary: "Public analysis; underlying platform data proprietary"
+    raw_data_accessible: false
+    source_url: "https://www.angellist.com/blog/what-angellist-data-says-about-power-law-returns-in-venture-capital"
+    values_used:
+      density_exponent_alpha_approx: 2.3
+      survival_tail_exponent_beta_implied: 1.3
+    provenance_classification: "PROXY"
+    known_biases:
+      - "Exact fitting convention and cutoff require source-level review before direct calibration."
+      - "Positive-return sample does not identify the mass below 1x."
+    notes:
+      - "Used as a model-risk tail-exponent scenario, not as an observed parameter."
+  SRC_MOONFIRE_001:
+    title: "Moonfire / related portfolio power-law calibration summary"
+    organisation_authors: "Moonfire and related public venture portfolio analyses"
+    year: "UNKNOWN"
+    geography: "UNKNOWN"
+    sample_definition: "Reported analysis combining Correlation Ventures, AngelList and Horsley Bridge summaries."
+    unit_of_observation: "Likely venture investment or portfolio return observations; exact unit unverified."
+    variable_measured: "Candidate density power-law exponent and lower cutoff."
+    public_or_proprietary: "Public summary; underlying data not accessible here"
+    raw_data_accessible: false
+    source_url: "UNKNOWN"
+    values_used:
+      density_exponent_alpha_approx: 2.05
+      x_min_approx: 0.35
+    provenance_classification: "PROXY"
+    known_biases:
+      - "Exact random variable and exponent convention require audit."
+      - "Not used as the baseline investor-MOIC tail calibration."
+    notes:
+      - "Retained as tail model-risk context."
+  SRC_CARTA_TRANSITION_001:
+    title: "Carta Seed to Series A cohort transition observations"
+    organisation_authors: "Carta"
+    year: 2024
+    geography: "United States / Carta platform companies"
+    sample_definition: "Seed cohorts observed for Series A graduation within 24 months."
+    unit_of_observation: "Company financing cohort."
+    variable_measured: "Cumulative incidence of raising Series A within 24 months."
+    public_or_proprietary: "Public analysis; underlying platform data proprietary"
+    raw_data_accessible: false
+    source_url: "https://carta.com/sg/en/data/"
+    values_used:
+      seed_2022_to_series_a_24m: 0.17
+      seed_2018_to_series_a_24m_low: 0.25
+      seed_2018_to_series_a_24m_high: 0.30
+    provenance_classification: "OBSERVED_AGGREGATE"
+    known_biases:
+      - "Cumulative 24-month transition statistic, not lifetime transition probability."
+      - "Platform coverage and cohort definitions require audit."
+    notes:
+      - "Deferred to S2b-b event/survival work."
+  SRC_CARTA_TIMING_001:
+    title: "Carta State of Private Markets Q1 2024"
+    organisation_authors: "Carta"
+    year: 2024
+    geography: "Carta platform companies"
+    sample_definition: "Companies that raised a primary Series A in Q1 2024."
+    unit_of_observation: "Company financing event."
+    variable_measured: "Median days from seed to Series A conditional on Series A occurring."
+    public_or_proprietary: "Public analysis; underlying platform data proprietary"
+    raw_data_accessible: false
+    source_url: "https://carta.com/sg/en/data/state-of-private-markets-q1-2024/"
+    values_used:
+      median_seed_to_series_a_days_conditional_on_a: 766
+    provenance_classification: "OBSERVED_AGGREGATE"
+    known_biases:
+      - "Conditional on successfully raising Series A."
+      - "Not an unconditional time-to-transition distribution."
+    notes:
+      - "Deferred to S2b-b event/survival work."
+  SRC_CARTA_DILUTION_001:
+    title: "Carta State of Private Markets Q1 2024 dilution benchmarks"
+    organisation_authors: "Carta"
+    year: 2024
+    geography: "Carta platform priced rounds"
+    sample_definition: "Priced primary venture rounds by stage."
+    unit_of_observation: "Primary priced financing round."
+    variable_measured: "Median primary round dilution."
+    public_or_proprietary: "Public analysis; underlying platform data proprietary"
+    raw_data_accessible: false
+    source_url: "https://carta.com/sg/en/data/state-of-private-markets-q1-2024/"
+    values_used:
+      seed_primary_round_median_dilution: 0.205
+      series_a_primary_round_median_dilution: 0.201
+    provenance_classification: "OBSERVED_AGGREGATE"
+    known_biases:
+      - "Priced-round dilution excludes SAFE conversion, notes, bridge rounds, option-pool refreshes and other issuance."
+      - "Medians do not identify a full dilution distribution."
+    notes:
+      - "Used as deterministic median dilution inputs only."
+  SRC_BBB_001:
+    title: "UK Venture Capital Financial Returns 2025"
+    organisation_authors: "British Business Bank"
+    year: 2025
+    geography: "United Kingdom, United States and rest of Europe fund comparisons"
+    sample_definition: "Mature pooled venture capital fund vintages and median UK VC funds."
+    unit_of_observation: "Fund-level pooled or median TVPI."
+    variable_measured: "Fund-level TVPI."
+    public_or_proprietary: "Public report"
+    raw_data_accessible: false
+    source_url: "https://www.british-business-bank.co.uk/about/research-and-publications/uk-venture-capital-financial-returns-2025"
+    values_used:
+      uk_pooled_mature_vintage_tvpi: 1.84
+      us_pooled_mature_vintage_tvpi: 1.95
+      uk_median_vc_tvpi: 1.48
+    provenance_classification: "OBSERVED_AGGREGATE"
+    known_biases:
+      - "Fund-level TVPI is not investment-level MOIC."
+      - "Gross/net, fees, carry, unrealized valuation methods and vintage maturity must be audited before strong conclusions."
+    notes:
+      - "Used only for posterior predictive validation targets."
+  SRC_AZEVEDO_001:
+    title: "Azevedo et al. founder/company exit-value research"
+    organisation_authors: "Azevedo et al."
+    year: "UNKNOWN"
+    geography: "UNKNOWN"
+    sample_definition: "Founder/company exit-value-related sample, exact data definition not audited here."
+    unit_of_observation: "Founder proceeds or company exit-value observation."
+    variable_measured: "Founder zero proceeds and company/founder exit-value tail behavior."
+    public_or_proprietary: "Public research summary; exact source not included in repository"
+    raw_data_accessible: false
+    source_url: "UNKNOWN"
+    values_used:
+      founder_zero_proceeds_low: 0.84
+      founder_zero_proceeds_high: 0.88
+      company_or_founder_tail_alpha_approx: 1.12
+    provenance_classification: "PROXY"
+    known_biases:
+      - "Measures founder/company economics, not investor-level MOIC."
+      - "Exponent convention is not mapped to the S2b-a investor-return tail convention."
+    notes:
+      - "Explicitly not used as an investor-return parameter."

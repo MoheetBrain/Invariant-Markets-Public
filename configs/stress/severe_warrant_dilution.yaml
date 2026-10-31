@@ -1,0 +1,6 @@
+extends: ../base.yaml
+scenario_name: "stress_severe_warrant_dilution"
+description: "Raises the synthetic dilution haircut to show how internal founder-warrant support can weaken."
+random_seed: 20260820
+founder_warrant:
+  dilution_percentage_per_round: {value: 0.60}

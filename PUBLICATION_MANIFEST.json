@@ -1,0 +1,1325 @@
+{
+  "publication_date": "2026-10-31",
+  "files": [
+    {
+      "path": ".github/CODEOWNERS",
+      "bytes": 15,
+      "sha256": "ae1f6695d0886629c7a0c2305f23cfb106323a9671f83b442f571520b4797a53"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 195,
+      "sha256": "247af62c062e412de71d39daf33caeb76186a4a5d2b3f6c33bdd8934456b639b"
+    },
+    {
+      "path": "ASSUMPTIONS.md",
+      "bytes": 10319,
+      "sha256": "044372912d9363826886e90c3768cf04e4e3bb35a58acd84826e695b1c34654a"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 2541,
+      "sha256": "f13528c9d663eec41e177f34c7afef0e96808861481b11e5e06eeaa51c16cded"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 531,
+      "sha256": "6837970a722fe20a0a1eecfd3f9bfd5432c892c960357f996816263a6f800e96"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 557,
+      "sha256": "1d00aadcecfec711a5712a716e34613911ebd531bfce851f6a82a9b01f0df7ca"
+    },
+    {
+      "path": "DATA_LICENSE.md",
+      "bytes": 849,
+      "sha256": "ddfb89f5786ebfcdfb56740ca5325e8fcbf632943f029b6a25069952cf93dda0"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1068,
+      "sha256": "962e0747acf50c881f697117c85cc4cfd2dcc358cc07c28c0e4f70e66d1b6ed6"
+    },
+    {
+      "path": "MODEL_CARD.md",
+      "bytes": 4986,
+      "sha256": "26df70f9cf4a9e5ee95f93ef39f494f196dc0b0e7d4d2115fa3c23bd5f2e4325"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 760,
+      "sha256": "05dce4a121ffc665bf9fbdd8d5d8b50d71a8a50765cac3f32e60f302ffaa8348"
+    },
+    {
+      "path": "PROVENANCE.json",
+      "bytes": 775,
+      "sha256": "a0ecbbbb9f2888303b9998287fcf7bfb6801cdf88039460ddb42c76e439cc366"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6793,
+      "sha256": "b20609db63a02e0022294a85d31294729e204f9b5afb24be73ede23be3039a77"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 314,
+      "sha256": "6da0c3deb78471d28372a928f9437653925bec89dd8fb76f16ffd597abdca71e"
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 4152,
+      "sha256": "97667c67aae90b5a6adacec641ed338d095cdd79600434718cd9b8e9983b3de5"
+    },
+    {
+      "path": "configs/base.yaml",
+      "bytes": 12800,
+      "sha256": "bfa87da2cb59fcf6e396ee95f1f844b0d89e5ecf5f408ed7c74f001fab197710"
+    },
+    {
+      "path": "configs/calibrated_terminal_v1.yaml",
+      "bytes": 7319,
+      "sha256": "8fda6c37e56db97ef99b5c82021328fcafcb9c2a01d759a865fcf5d085f10852"
+    },
+    {
+      "path": "configs/optimistic.yaml",
+      "bytes": 1232,
+      "sha256": "c4e5791a7ea7a5acc95198e68645c4d00b28cb0c6bacc9af578e4cfe2c70dd83"
+    },
+    {
+      "path": "configs/pessimistic.yaml",
+      "bytes": 1219,
+      "sha256": "8a11e6e21c1393ec5fba64ef4c9e77112c3fdac40a51f2007a15ad879f8a5c7f"
+    },
+    {
+      "path": "configs/selection_frontier_v1.yaml",
+      "bytes": 23856,
+      "sha256": "e84a410361356135b3207e02b0bd15a83b1e4832036d15b0dc74b9ddb57360c0"
+    },
+    {
+      "path": "configs/stress/high_correlation.yaml",
+      "bytes": 338,
+      "sha256": "096b9bbb820b5653ff8b395140905dfdc046fb041b1fad55b812fed27f0a962c"
+    },
+    {
+      "path": "configs/stress/ipo_freeze.yaml",
+      "bytes": 1255,
+      "sha256": "fb8ae090b725fd966e39d055a51154e5cfa7113c9d36b3bf813772d9d4a70c2a"
+    },
+    {
+      "path": "configs/stress/no_unicorns.yaml",
+      "bytes": 619,
+      "sha256": "eb5f987d31393acad2932ac4ff8e2a03c748d3549be3997f41af556a290ab007"
+    },
+    {
+      "path": "configs/stress/severe_warrant_dilution.yaml",
+      "bytes": 266,
+      "sha256": "88283a29a586a84ab36133559ed935290f48874370a5c60946b169418a5dc875"
+    },
+    {
+      "path": "configs/stress/systemic_crash.yaml",
+      "bytes": 294,
+      "sha256": "77f089f9c82382440410d575b6ef19318a03484f4b839e7a6607ae477f2373a5"
+    },
+    {
+      "path": "configs/stress/total_wipeout.yaml",
+      "bytes": 1104,
+      "sha256": "ea3b6482aa12f70cdc1f8487079a3d83b35b00d0a96975651ed1ce0837468bcc"
+    },
+    {
+      "path": "data/README.md",
+      "bytes": 445,
+      "sha256": "b11066201bb67c56627ff334a8f87da244767868c5665929b331ad9f32cc5c8b"
+    },
+    {
+      "path": "data/calibration/README.md",
+      "bytes": 617,
+      "sha256": "402843aca9f95a133ed395069cdcbc9375cd9b63b39db438d485ce998e9cdeeb"
+    },
+    {
+      "path": "data/calibration/empirical_constraints_v1.yaml",
+      "bytes": 6573,
+      "sha256": "6cc609ddd6888fe4d12b79f27c1559d1960d84371e8f2a4c6ca0461010533adc"
+    },
+    {
+      "path": "data/calibration/source_registry.yaml",
+      "bytes": 9767,
+      "sha256": "6133db75db90a5180d7b7b1834738488c1323f6b07adb7b981c0c057bd907021"
+    },
+    {
+      "path": "data/interim/README.md",
+      "bytes": 125,
+      "sha256": "8388b1e66e5426134638604d072edb2245d7af496014ab5188538e87ae080944"
+    },
+    {
+      "path": "data/manifests/README.md",
+      "bytes": 141,
+      "sha256": "d87e8e537a722d5c5d89332214e710d82ee027e8b2cb5f8b7805966f6725081f"
+    },
+    {
+      "path": "data/processed/README.md",
+      "bytes": 98,
+      "sha256": "c65bb8fad5d69de89248ab5514615d1659488e7eeca5acdae10f93e167419397"
+    },
+    {
+      "path": "data/raw/README.md",
+      "bytes": 97,
+      "sha256": "ebaac1b2283cd6c07be38ae701c15e7ca491b35e57c55683fd5cb4153c196e6f"
+    },
+    {
+      "path": "docs/00_start_here.md",
+      "bytes": 1573,
+      "sha256": "271a634bb78b82f53707e3f8fb162519b5db62c7c10fbdc505e92106e139df97"
+    },
+    {
+      "path": "docs/01_financial_contract.md",
+      "bytes": 1247,
+      "sha256": "1979f58d5a598a819b1c3cf27c881d0425da0fd0e1e96302f2963895cc329c2a"
+    },
+    {
+      "path": "docs/02_mathematical_specification.md",
+      "bytes": 1922,
+      "sha256": "786eed3027a8894ffeb36abcf198f8d29c6f42813fb13f9228fa9b85b6511aa9"
+    },
+    {
+      "path": "docs/03_model_architecture.md",
+      "bytes": 3072,
+      "sha256": "6cc04ea7b3e1d25d486c46812db1c0ac8927502b848323e383279852b78850d5"
+    },
+    {
+      "path": "docs/04_validation_plan.md",
+      "bytes": 2705,
+      "sha256": "43ccdc3e34227dc79cb6cc5ddb845328277ba27146eaec5bc8140f4cfab414d6"
+    },
+    {
+      "path": "docs/05_data_dictionary.md",
+      "bytes": 1243,
+      "sha256": "1f58a397c4083e05cbe9bede2c2265a390f4292d33c681fbbc6cbebfc4e3b8cf"
+    },
+    {
+      "path": "docs/06_glossary.md",
+      "bytes": 1573,
+      "sha256": "fa33d8e7fb910bdfcf0d27496d371a22541ab23c8c776678183248f93dbfe232"
+    },
+    {
+      "path": "docs/LIMITATIONS.md",
+      "bytes": 1187,
+      "sha256": "2839e7dd505594d8b17b81d3f52af1d46ccf3d92e56d392410015fe9d25cac22"
+    },
+    {
+      "path": "docs/METHODOLOGY.md",
+      "bytes": 587,
+      "sha256": "515105cfe88115b05f18e8298ad3895fe2d53aef463cc818473c10764e309999"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY.md",
+      "bytes": 1867,
+      "sha256": "90cb558bb6d0703eb65653a35a9e65b1f7e8eb77bceb6baf5fd6a8db5407d5f0"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "bytes": 724,
+      "sha256": "b9ef506d2e4f3de7690b2e4226f847f8d2fac864f2a256bbdab658719d93df04"
+    },
+    {
+      "path": "docs/decisions/0001-economic-core-separate-from-legal-wrapper.md",
+      "bytes": 773,
+      "sha256": "76fd7d4744a5729a6bb62f8ebd7201aac202e6afc2306b73516f991f65f57a0f"
+    },
+    {
+      "path": "docs/decisions/ADR-001-python-is-primary.md",
+      "bytes": 1938,
+      "sha256": "df8831cbf414d220d7728dd0e9e057d0a9f256672d5dfd2a2db03f5d5960d500"
+    },
+    {
+      "path": "docs/decisions/ADR-002-event-driven-simulation-is-primary.md",
+      "bytes": 2299,
+      "sha256": "60a968d48fabff251c796c5efd5a52d9e67a2bd930055f59af14994fd97840e7"
+    },
+    {
+      "path": "docs/decisions/ADR-003-legal-wrapper-excluded-from-core-mathematics.md",
+      "bytes": 2345,
+      "sha256": "4d11c45cc4ce9503680e6ece9211f5db45839070a5091a909ced9b62e074bb3e"
+    },
+    {
+      "path": "docs/decisions/ADR-004-assumptions-require-provenance.md",
+      "bytes": 1911,
+      "sha256": "7403c98ee3167decdd77cbb67ea52ac36db499abcbabe904daed52f648847d8e"
+    },
+    {
+      "path": "docs/decisions/ADR-005-separate-model-outputs-from-platformco-valuation.md",
+      "bytes": 2317,
+      "sha256": "c5b43b7b65b4a0e5d8ce0c51d9dd9e188a18f29b90db2e98eea85964d3f46747"
+    },
+    {
+      "path": "docs/decisions/ADR-006-observations-separate-from-parameters.md",
+      "bytes": 1697,
+      "sha256": "de0bb24848770f857853dd0182a5aeffde5e95eb53c18db0f83fdb49eabb4d4d"
+    },
+    {
+      "path": "docs/decisions/ADR-007-selection-is-a-hypothetical-sensitivity.md",
+      "bytes": 1751,
+      "sha256": "c5375c1a8dfe35389028352e59fef6ee356e776ffcddd36c38da63cb49d1d00b"
+    },
+    {
+      "path": "docs/decisions/README.md",
+      "bytes": 1469,
+      "sha256": "34cc70f8c04a81bfd022e75dbc2bab410a728672ea89d736257483ea1819ae3a"
+    },
+    {
+      "path": "docs/empirical_calibration/00_overview.md",
+      "bytes": 1019,
+      "sha256": "a94b20b58bbf695feeb2a2690ac3a23c954b78ce80c5f66fade224ad795d8e0e"
+    },
+    {
+      "path": "docs/empirical_calibration/01_data_mapping.md",
+      "bytes": 1065,
+      "sha256": "09b79745a1a8d1c833c609bac8ece18e31bec592bc17fba0fc222d61881e0394"
+    },
+    {
+      "path": "docs/empirical_calibration/02_return_distribution.md",
+      "bytes": 922,
+      "sha256": "00e1c61399ada8c9af4e8b8a8976242f96ac785407d81beedf1e1633054302ff"
+    },
+    {
+      "path": "docs/empirical_calibration/03_tail_convention.md",
+      "bytes": 856,
+      "sha256": "f57af18ec3267fab81b54565ac6c351a01a83c412aa81d40e212fa531273eeee"
+    },
+    {
+      "path": "docs/empirical_calibration/04_model_risk.md",
+      "bytes": 727,
+      "sha256": "66c5387033be0ba0f3c37bdd3d2fb69124d1bb95fb83142958436696996d35b0"
+    },
+    {
+      "path": "docs/empirical_calibration/05_validation.md",
+      "bytes": 848,
+      "sha256": "729e60c223b058395e5c2f03f1babd33cbb8e105d30116ce60b89763612e60a4"
+    },
+    {
+      "path": "docs/research/original_readme.md",
+      "bytes": 375,
+      "sha256": "390a3d458f8431aa83b3e18c39784738a2dd75d0dc1c7711fdb2fd6e0bbdc425"
+    },
+    {
+      "path": "docs/selection_frontier/00_overview.md",
+      "bytes": 990,
+      "sha256": "7399ce35fd80bdd84be243e0ebf415aa9ddc7a7b56c9241ed85d68c174cc3361"
+    },
+    {
+      "path": "docs/selection_frontier/01_failure_and_floor_breach.md",
+      "bytes": 1009,
+      "sha256": "4caa9343a12df76631abfd9cd7f6f18f8f4d329122622cb1c472cd9f7458a99d"
+    },
+    {
+      "path": "docs/selection_frontier/02_selection_models.md",
+      "bytes": 957,
+      "sha256": "7be352f378b3ca441db303aa43dd15a1a6c307d6fed6020a220f37b4e86165b5"
+    },
+    {
+      "path": "docs/selection_frontier/03_factor_diversification.md",
+      "bytes": 914,
+      "sha256": "c0bd03d945b8151aac78cae454f881300a93a309f11e26eb9c89e1a30fb0b92a"
+    },
+    {
+      "path": "docs/selection_frontier/04_platform_economics.md",
+      "bytes": 1315,
+      "sha256": "7a299cae6dfcc1da5b779415fa62fdc6953aedc7b8d14a76c4960387e3cdc860"
+    },
+    {
+      "path": "docs/selection_frontier/05_experiment_and_validation.md",
+      "bytes": 1385,
+      "sha256": "b9c2f6519be169dfad98d11047ac9601f28de5ba83aea14e4e5128ace123252f"
+    },
+    {
+      "path": "docs/selection_frontier/06_limits_and_falsification.md",
+      "bytes": 997,
+      "sha256": "768e4812406970643d2760d9e4e5b3e037b3cd14df840f7d17a9452842c85a47"
+    },
+    {
+      "path": "notebooks/README.md",
+      "bytes": 172,
+      "sha256": "3baa1d1f2bb3118041b57acc1cb13253a87194f5399168d35cfbdfa581e7fd8f"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 719,
+      "sha256": "6d55877ee9f9b17180b1abb803896792690514eb41b4b6ff58d38c27d5d4d12e"
+    },
+    {
+      "path": "requirements.lock",
+      "bytes": 327,
+      "sha256": "85c37644a95e176dd865e8cd236acd917d5070c0875eb9e7979eff60565eafa9"
+    },
+    {
+      "path": "results/coherence-v2/assumptions.yaml",
+      "bytes": 3324,
+      "sha256": "da96eea43309d280a4e9932807d169288003d6598855971ba1712b85f28a8808"
+    },
+    {
+      "path": "results/coherence-v2/config.yaml",
+      "bytes": 4205,
+      "sha256": "5553fdab6463caaa1099790e8cbcc2d3f81b996e6688bfee4834e1ece2046913"
+    },
+    {
+      "path": "results/coherence-v2/dependence_frontier.csv",
+      "bytes": 507449,
+      "sha256": "8c6ce3ebd5ad94504f06424db865fefab86903d2373778fd28ba43d96d7777f5"
+    },
+    {
+      "path": "results/coherence-v2/empirical_coherence.csv",
+      "bytes": 100222,
+      "sha256": "3887d7351ca3656868e29a02594ba657effe7c2303e96ddb7a47703d7b3cf3cb"
+    },
+    {
+      "path": "results/coherence-v2/figures/01_expected_claim_vs_rho.png",
+      "bytes": 87752,
+      "sha256": "b6ad871fc947917cedc40f3bb42b78af74fe4c5c6c9eaad29aa389d8ea6c5d05"
+    },
+    {
+      "path": "results/coherence-v2/figures/02_probability_claim_vs_rho.png",
+      "bytes": 92255,
+      "sha256": "8384a8b13ccbecc0eef77676a3280ba620ed730433f3693c1e75bbd8746224a4"
+    },
+    {
+      "path": "results/coherence-v2/figures/03_es99_5_vs_rho.png",
+      "bytes": 80888,
+      "sha256": "ceb4f6d53feaac9f653a4e43dcc69abcae8b207c4e703c1be5ad86e084247831"
+    },
+    {
+      "path": "results/coherence-v2/figures/04_expected_claim_vs_n.png",
+      "bytes": 55818,
+      "sha256": "aded3230b0c4d5095921173af213dae276a29e22069116f025aa0a3478898640"
+    },
+    {
+      "path": "results/coherence-v2/figures/05_marginal_benefit_additional_n.png",
+      "bytes": 29676,
+      "sha256": "bf57a8c25f7b071e38bc3ebd862fa833156b9f8b10e66b015e79c916433eb79d"
+    },
+    {
+      "path": "results/coherence-v2/figures/06_floor_comparison.png",
+      "bytes": 84853,
+      "sha256": "3e865c17b37b45976a68ddbc4a07e3f376c839f3877c4606065d9983b7323a22"
+    },
+    {
+      "path": "results/coherence-v2/figures/07_model_return_vs_fund_targets.png",
+      "bytes": 31137,
+      "sha256": "f87baaf47d2b4a772972a2558ca81dbfd8788b641ccbd3b1cebc45a93e9d7b0f"
+    },
+    {
+      "path": "results/coherence-v2/figures/08_mismatch_required_reduction.png",
+      "bytes": 28412,
+      "sha256": "b3f38222f8f8bc7cf94d19a1adb2f9d934cb847af25716e17cb8715baac9267b"
+    },
+    {
+      "path": "results/coherence-v2/figures/09_winner_deletion_rho20.png",
+      "bytes": 42502,
+      "sha256": "fc25418506b5110b4aff4cb18f740095903ac2034b622cffc4f6a23d0f8fe3e8"
+    },
+    {
+      "path": "results/coherence-v2/figures/10_gaussian_vs_alternative_dependence.png",
+      "bytes": 40001,
+      "sha256": "c6aeeec7a37b501a8de9b12d1ebf1e99bd68eb5874194c987f1647cf60a869a0"
+    },
+    {
+      "path": "results/coherence-v2/guarantee_breakpoints.csv",
+      "bytes": 36486,
+      "sha256": "ff629ee77e482cc7f0c17e8f70062a290a12b72108983b2f426e5f34c35cf449"
+    },
+    {
+      "path": "results/coherence-v2/manifest.json",
+      "bytes": 765,
+      "sha256": "c723a2cefcb5fdd1fc070248aa3bd825b9bd95a2cac0d94e9d286270c07a2973"
+    },
+    {
+      "path": "results/coherence-v2/model_comparison.csv",
+      "bytes": 17282,
+      "sha256": "a24f03eaa46f76dbd3fe3ce5593a20f28a5af4d81dd9802949b47cf643d38078"
+    },
+    {
+      "path": "results/coherence-v2/portfolio_size_saturation.csv",
+      "bytes": 220228,
+      "sha256": "35895e512f7480ed565d89907436819f133961f28a7fe3599f90c03df853f967"
+    },
+    {
+      "path": "results/coherence-v2/results.json",
+      "bytes": 73085,
+      "sha256": "d9f37f7ae0a0fc56d7b95d64c2e257e91bf8d38f327087dbc4b5fe189b9f5daf"
+    },
+    {
+      "path": "results/coherence-v2/summary.md",
+      "bytes": 6091,
+      "sha256": "e3c340353d6c20d2044af5dad8c529aa96d9a94adb34a34823ccdd2b4479572b"
+    },
+    {
+      "path": "results/coherence-v2/unit_of_observation_audit.csv",
+      "bytes": 7145,
+      "sha256": "871bfa44e61d875435ea72501ae98fb664794fe530a2ef3601a483e96022a248"
+    },
+    {
+      "path": "results/coherence-v2/validation.json",
+      "bytes": 1352,
+      "sha256": "95ce53b9fa98859b804e423ef31362007ebfff68cd9204038dcec11a15469b1f"
+    },
+    {
+      "path": "results/coherence-v2/winner_deletion_correlated.csv",
+      "bytes": 19200,
+      "sha256": "5a19a4aaf4580e64add1d724df2c4edfe56f1bb7f5d06991255964e92d3329c8"
+    },
+    {
+      "path": "results/synthetic-baseline/config.yaml",
+      "bytes": 14937,
+      "sha256": "6c30c2abfd15b71e67fd20d84a89d1417130284f46e1e9b4b6b552814c6e8e4a"
+    },
+    {
+      "path": "results/synthetic-baseline/figures/baseline_guarantee_claim_distribution.png",
+      "bytes": 33090,
+      "sha256": "32914e9c422c7556b9403eea08e4d97e2adb265eb42a28dad09c216c13c30529"
+    },
+    {
+      "path": "results/synthetic-baseline/figures/baseline_portfolio_return_distribution.png",
+      "bytes": 35562,
+      "sha256": "379bf981e51538efc06c27f6b72d471363a3e3351e0527e48d601fbbdf89e770"
+    },
+    {
+      "path": "results/synthetic-baseline/figures/claim_probability_vs_portfolio_size.png",
+      "bytes": 102852,
+      "sha256": "73bc548007022bc6701d74cb0bdbf3e155eec2df4544120cdf9ed72a815cd29e"
+    },
+    {
+      "path": "results/synthetic-baseline/figures/expected_claim_vs_portfolio_size.png",
+      "bytes": 88912,
+      "sha256": "9b0904cba9972a79007cea1ce4980ce7736969072009c68766fff3ea8a60c964"
+    },
+    {
+      "path": "results/synthetic-baseline/figures/expected_shortfall_99_5_vs_portfolio_size.png",
+      "bytes": 65653,
+      "sha256": "409d509febd14ec9319e81f2d84cc086aa2736f68c3c48a804c52299108aa238"
+    },
+    {
+      "path": "results/synthetic-baseline/manifest.json",
+      "bytes": 596,
+      "sha256": "0b6c4584c8410d63b970768824b96a478e368db793c12a4045296df68d2d8e66"
+    },
+    {
+      "path": "results/synthetic-baseline/results.json",
+      "bytes": 418694,
+      "sha256": "169490e889e29e992aaacf94445c9d3e7b129750d24fe814fb73614d56bf4317"
+    },
+    {
+      "path": "results/synthetic-baseline/summary.md",
+      "bytes": 3148,
+      "sha256": "6a42dfedebc6804b205ecec6ed8218cbee9a2c00ea87441ea128677904e0f07d"
+    },
+    {
+      "path": "runs/README.md",
+      "bytes": 623,
+      "sha256": "84f98f8fd05b595fced6fb1ad21214b2853c868f48d7ad8a991afd3ad4d22849"
+    },
+    {
+      "path": "scripts/verify_release.py",
+      "bytes": 625,
+      "sha256": "70d2f51194617731a5ef7d16ef1df598f57d8e8ef1ba4f035a64410674d7ee5c"
+    },
+    {
+      "path": "src/invariant/__init__.py",
+      "bytes": 81,
+      "sha256": "aa5682b9fabdce2f4f8e56cafa24086f7e6d8d578d0b36e334be865f0ea8f392"
+    },
+    {
+      "path": "src/invariant/calibration/__init__.py",
+      "bytes": 658,
+      "sha256": "3a3cf9bea8ef27821e704f691aff863238d4767369b5fb1ba566674ee07c2470"
+    },
+    {
+      "path": "src/invariant/calibration/constraints.py",
+      "bytes": 5135,
+      "sha256": "38edb9a7f37d8e842dc47b5c29527c7bf1357497efd8c14eebe6e8d0814823ec"
+    },
+    {
+      "path": "src/invariant/calibration/diagnostics.py",
+      "bytes": 6415,
+      "sha256": "c45d6b29d6b63e972c425dd1465d6af2d0b6d63d536a150b5e5ae6aff5e216fd"
+    },
+    {
+      "path": "src/invariant/calibration/parameter_models.py",
+      "bytes": 8860,
+      "sha256": "9db7d8cc0576a8a2149ee2c1960a9cf3627be8707c0a5123d3b05ea6d97422be"
+    },
+    {
+      "path": "src/invariant/calibration/terminal_fit.py",
+      "bytes": 35838,
+      "sha256": "cc95c5272b69e8da6bd8618b108702b5a4f34c3953031b5cafedbfc3cfbb5ba3"
+    },
+    {
+      "path": "src/invariant/calibration/uncertainty.py",
+      "bytes": 2034,
+      "sha256": "277a464b9e634b4ebe0656f144b51f69cc76e71d1a560bca500ac8f91812d278"
+    },
+    {
+      "path": "src/invariant/cli.py",
+      "bytes": 3507,
+      "sha256": "5e615c9e39d3370c7673da2d250599208ba761105b62fa258b44f52219f39089"
+    },
+    {
+      "path": "src/invariant/core/__init__.py",
+      "bytes": 286,
+      "sha256": "1e095bdf84b7cc36faaa04505b3637f723c2cbc8e2c8532eeaf518eeae8c2e20"
+    },
+    {
+      "path": "src/invariant/core/config.py",
+      "bytes": 13954,
+      "sha256": "f9de2d9b1af18d3bb9a6a08206dd038121719efe6a3164f5610ac83753ed8b63"
+    },
+    {
+      "path": "src/invariant/core/contracts.py",
+      "bytes": 3456,
+      "sha256": "4a0024f8791a11c23d59518ed962461253265d4caa15a5d50dd2bddcb74b530e"
+    },
+    {
+      "path": "src/invariant/core/enums.py",
+      "bytes": 578,
+      "sha256": "83c5f85392fced0a8ca7a4731c32b0d6d85c7b1b72906f6a76f7160e123fe43d"
+    },
+    {
+      "path": "src/invariant/core/metrics.py",
+      "bytes": 1858,
+      "sha256": "6a86d43482af4644d4f0f4406d889f7a5db2e16c2365b34451d7319fdcf3c310"
+    },
+    {
+      "path": "src/invariant/core/provenance.py",
+      "bytes": 2199,
+      "sha256": "8f814418981d12a5b12a036f7a0f52c0a17a7755a7977486380166780cd3d00f"
+    },
+    {
+      "path": "src/invariant/core/types.py",
+      "bytes": 7037,
+      "sha256": "7302f13a566fd09e7595fb6f07ad871201a9ab19def23b96287eaf3b6e9f51c7"
+    },
+    {
+      "path": "src/invariant/economics/__init__.py",
+      "bytes": 629,
+      "sha256": "d36256ff6a66883b2c6d4e723bc6f8e50a08f3314c823d59bffa7ae74123556c"
+    },
+    {
+      "path": "src/invariant/economics/platform.py",
+      "bytes": 16289,
+      "sha256": "e3d57fdcfb2572f85d645021a31fc849fb6140f57ec7722ded21a8100afdfcb2"
+    },
+    {
+      "path": "src/invariant/experiments/__init__.py",
+      "bytes": 314,
+      "sha256": "3bf18402325998cba7a9b6bf5087ed6e1d2354b0f41d11ef450dfcbe85eb66f1"
+    },
+    {
+      "path": "src/invariant/experiments/config.py",
+      "bytes": 7568,
+      "sha256": "148ec4cda41f7afc3bbcadd5a029045aee8a437eee448aac4a67cae04e898e37"
+    },
+    {
+      "path": "src/invariant/experiments/frontiers.py",
+      "bytes": 2977,
+      "sha256": "cb0f9124ac265bcac65a3c1917593626ce434a3212ac37f4dd2802ef9a72c8f9"
+    },
+    {
+      "path": "src/invariant/experiments/model_factory.py",
+      "bytes": 5041,
+      "sha256": "0e99f44f80ac2ef12045c1cbc6a4cf17b290659237152579339a49e28d548f2f"
+    },
+    {
+      "path": "src/invariant/experiments/planner.py",
+      "bytes": 6349,
+      "sha256": "efd8f42f6054b8cbc3e6dbb1bbdb808baf8f62763dd08bcc4abf771dbc06d257"
+    },
+    {
+      "path": "src/invariant/experiments/selection_frontier.py",
+      "bytes": 84306,
+      "sha256": "5012c3e66e46b5f4a0b6187b5fa73b1cea527df981ba7774c02a037057a48df8"
+    },
+    {
+      "path": "src/invariant/macro/__init__.py",
+      "bytes": 213,
+      "sha256": "927d5b92f03bec4f8e86f8b2a6ddbcf4f1fc5e4fd772c1ca9aaa4c614c2fc4a8"
+    },
+    {
+      "path": "src/invariant/macro/sampler.py",
+      "bytes": 1312,
+      "sha256": "efd5c862e1d1bb7aec9350f0ebf406131d7a8870283c8f49424169b3a82c1bbc"
+    },
+    {
+      "path": "src/invariant/models/__init__.py",
+      "bytes": 52,
+      "sha256": "7c53f70161564d38ac9c655cdf2efdd493ea86ef10928fd62616c8d6e4bd42a4"
+    },
+    {
+      "path": "src/invariant/models/event_driven/__init__.py",
+      "bytes": 192,
+      "sha256": "f3018399f6ca5a309a22e8b064bfa01ec518204fd1d219b06d35c6e85e958eac"
+    },
+    {
+      "path": "src/invariant/models/event_driven/prototype.py",
+      "bytes": 2335,
+      "sha256": "d269975fb18e3be82ae4fd7e0711f817d4115eccb1c1037b9cb992cbcbd71fd5"
+    },
+    {
+      "path": "src/invariant/models/historical_bootstrap/__init__.py",
+      "bytes": 191,
+      "sha256": "99d86da9a87ca3fbad16608a110d37db446c2dc154eb338711866492c1341364"
+    },
+    {
+      "path": "src/invariant/models/historical_bootstrap/interface.py",
+      "bytes": 604,
+      "sha256": "fe5161901eae77b077c32a86e8ee46a4a92790b3bd22118bb856dd3ff23c755f"
+    },
+    {
+      "path": "src/invariant/models/terminal/__init__.py",
+      "bytes": 288,
+      "sha256": "05d8e2ac7fc6b17b3249d68926f2a7ac4f608c0c75157d7460422166a4c697f8"
+    },
+    {
+      "path": "src/invariant/models/terminal/empirical_mixture.py",
+      "bytes": 11252,
+      "sha256": "4273f6051e7eabafa5bdb553f228178c62ba9e904cfc675674f514a27009d836"
+    },
+    {
+      "path": "src/invariant/models/terminal/structural.py",
+      "bytes": 10468,
+      "sha256": "0ad0c0235b1970ff7a50ba7f91f84dcba318de941cffae49af0d3cd426968709"
+    },
+    {
+      "path": "src/invariant/portfolio/__init__.py",
+      "bytes": 385,
+      "sha256": "ea81586efad623408afaf8b91c9f5ec741027cb381850e65c65312b264e130a5"
+    },
+    {
+      "path": "src/invariant/portfolio/factor_model.py",
+      "bytes": 7119,
+      "sha256": "ed09f01ae86702931dc30269a7cf36e7015ab911ebbefb47d7e338dec5c18e9d"
+    },
+    {
+      "path": "src/invariant/portfolio/failure_tolerance.py",
+      "bytes": 5095,
+      "sha256": "8629b4191ca0a4982a2a9c18d58987df160ecc7e59b0094c91343852570fa8a1"
+    },
+    {
+      "path": "src/invariant/portfolio/simulation.py",
+      "bytes": 14584,
+      "sha256": "d9a6441f424511d9c8f5d4ec4080a52446ae258d737f29564c5859bfef788849"
+    },
+    {
+      "path": "src/invariant/protection/__init__.py",
+      "bytes": 219,
+      "sha256": "5976f78399002771d9569de9e16446e95b4d8bdf9956ef0f58da8bcb372e831a"
+    },
+    {
+      "path": "src/invariant/protection/layers.py",
+      "bytes": 930,
+      "sha256": "95e856204556ba42153bab1564a656015eea8cb4ac0046ccba545d5f6152d9d9"
+    },
+    {
+      "path": "src/invariant/reporting/__init__.py",
+      "bytes": 54,
+      "sha256": "0a06eb2f76974b51368b3f9d05a10557bfefd441d571f6958c7f8a42c31dedaa"
+    },
+    {
+      "path": "src/invariant/reporting/artifacts.py",
+      "bytes": 13707,
+      "sha256": "a214bff49b428a9d0894c2b7577df8ef5a9eb8215a56fcd97db915180251931b"
+    },
+    {
+      "path": "src/invariant/reporting/selection_frontier.py",
+      "bytes": 44612,
+      "sha256": "aada8651baf3e3936e06a8638b69f72a2073eb2a41292c562980c6304b725319"
+    },
+    {
+      "path": "src/invariant/risk/__init__.py",
+      "bytes": 144,
+      "sha256": "ad00282939eb14194b6550e1b992561a559a6139ff04475b527f5fbae4e8e98d"
+    },
+    {
+      "path": "src/invariant/risk/metrics.py",
+      "bytes": 2642,
+      "sha256": "ecebaa4af8fe6a071973a010bf8740d2174ea5d242c3b5b99d895125d3522281"
+    },
+    {
+      "path": "src/invariant/selection/__init__.py",
+      "bytes": 306,
+      "sha256": "76c52261577af70723f8db834527e0f19e904a328ff691d739c0a3b1bc8452a9"
+    },
+    {
+      "path": "src/invariant/selection/models.py",
+      "bytes": 6266,
+      "sha256": "95ccf0a90bb52baaf1a7cf8689de9c2685ebe579128f4f950af1ba817f0e651c"
+    },
+    {
+      "path": "src/invariant/startup/__init__.py",
+      "bytes": 79,
+      "sha256": "181b2f5bb0691155736a306b647c82765bce0e5675a6528b56cfc1f018913835"
+    },
+    {
+      "path": "stages/coherence-v2/.gitignore",
+      "bytes": 339,
+      "sha256": "cc569d468723b7ab79a1bf9931107942f103609c4ca6d119c76a92431256fbb0"
+    },
+    {
+      "path": "stages/coherence-v2/ASSUMPTIONS.md",
+      "bytes": 6979,
+      "sha256": "b183952354ed1feb7511e92b1be6a8e010f30863554681ce635d4605bf8c7379"
+    },
+    {
+      "path": "stages/coherence-v2/CHANGELOG.md",
+      "bytes": 2334,
+      "sha256": "172d3c82e5b4f09dc55858c500f688b52d30752e339ccc6a3143222db2c323ee"
+    },
+    {
+      "path": "stages/coherence-v2/MODEL_CARD.md",
+      "bytes": 4004,
+      "sha256": "92bc42ab9894ea281aa79ab033ed47d16853021f842cf9171f1e7864151f87e3"
+    },
+    {
+      "path": "stages/coherence-v2/README.md",
+      "bytes": 4854,
+      "sha256": "3ff6537e08b9a68dbf0242190f29af7b3a875d045af2b8516f2c4b75a8cafa70"
+    },
+    {
+      "path": "stages/coherence-v2/STAGE.md",
+      "bytes": 536,
+      "sha256": "4ed113f2142760406eb6b1c8509f5c13f8d7aefa27b7de3e31de447fe091ebf6"
+    },
+    {
+      "path": "stages/coherence-v2/STATUS.md",
+      "bytes": 3678,
+      "sha256": "87440fbbec375ffa658ca94767e1fd3588b61f1808252c82ad342690fc17ee57"
+    },
+    {
+      "path": "stages/coherence-v2/configs/base.yaml",
+      "bytes": 12800,
+      "sha256": "bfa87da2cb59fcf6e396ee95f1f844b0d89e5ecf5f408ed7c74f001fab197710"
+    },
+    {
+      "path": "stages/coherence-v2/configs/calibrated_terminal_v1.yaml",
+      "bytes": 7319,
+      "sha256": "8fda6c37e56db97ef99b5c82021328fcafcb9c2a01d759a865fcf5d085f10852"
+    },
+    {
+      "path": "stages/coherence-v2/configs/optimistic.yaml",
+      "bytes": 1232,
+      "sha256": "c4e5791a7ea7a5acc95198e68645c4d00b28cb0c6bacc9af578e4cfe2c70dd83"
+    },
+    {
+      "path": "stages/coherence-v2/configs/pessimistic.yaml",
+      "bytes": 1219,
+      "sha256": "8a11e6e21c1393ec5fba64ef4c9e77112c3fdac40a51f2007a15ad879f8a5c7f"
+    },
+    {
+      "path": "stages/coherence-v2/configs/research/empirical_coherence_dependence_v2.yaml",
+      "bytes": 4261,
+      "sha256": "4687e654d14718425c2fa764e90f79ed34a10721189d14711ef4e94669b7b494"
+    },
+    {
+      "path": "stages/coherence-v2/configs/stress/high_correlation.yaml",
+      "bytes": 338,
+      "sha256": "096b9bbb820b5653ff8b395140905dfdc046fb041b1fad55b812fed27f0a962c"
+    },
+    {
+      "path": "stages/coherence-v2/configs/stress/ipo_freeze.yaml",
+      "bytes": 1255,
+      "sha256": "fb8ae090b725fd966e39d055a51154e5cfa7113c9d36b3bf813772d9d4a70c2a"
+    },
+    {
+      "path": "stages/coherence-v2/configs/stress/no_unicorns.yaml",
+      "bytes": 619,
+      "sha256": "eb5f987d31393acad2932ac4ff8e2a03c748d3549be3997f41af556a290ab007"
+    },
+    {
+      "path": "stages/coherence-v2/configs/stress/severe_warrant_dilution.yaml",
+      "bytes": 266,
+      "sha256": "88283a29a586a84ab36133559ed935290f48874370a5c60946b169418a5dc875"
+    },
+    {
+      "path": "stages/coherence-v2/configs/stress/systemic_crash.yaml",
+      "bytes": 294,
+      "sha256": "77f089f9c82382440410d575b6ef19318a03484f4b839e7a6607ae477f2373a5"
+    },
+    {
+      "path": "stages/coherence-v2/configs/stress/total_wipeout.yaml",
+      "bytes": 1104,
+      "sha256": "ea3b6482aa12f70cdc1f8487079a3d83b35b00d0a96975651ed1ce0837468bcc"
+    },
+    {
+      "path": "stages/coherence-v2/data/README.md",
+      "bytes": 445,
+      "sha256": "b11066201bb67c56627ff334a8f87da244767868c5665929b331ad9f32cc5c8b"
+    },
+    {
+      "path": "stages/coherence-v2/data/calibration/README.md",
+      "bytes": 747,
+      "sha256": "aae5027ad613d4096c6601cb03ca15e922b7bef936218b49560ee07d4118158a"
+    },
+    {
+      "path": "stages/coherence-v2/data/calibration/empirical_constraints_v1.yaml",
+      "bytes": 6573,
+      "sha256": "6cc609ddd6888fe4d12b79f27c1559d1960d84371e8f2a4c6ca0461010533adc"
+    },
+    {
+      "path": "stages/coherence-v2/data/calibration/source_registry.yaml",
+      "bytes": 9767,
+      "sha256": "6133db75db90a5180d7b7b1834738488c1323f6b07adb7b981c0c057bd907021"
+    },
+    {
+      "path": "stages/coherence-v2/data/calibration/unit_of_observation_audit_v2.csv",
+      "bytes": 7166,
+      "sha256": "8dee02d450c7ec25482767bde69ba125f29e2f8afd39a3a24a77b43f49c1babb"
+    },
+    {
+      "path": "stages/coherence-v2/data/interim/README.md",
+      "bytes": 125,
+      "sha256": "8388b1e66e5426134638604d072edb2245d7af496014ab5188538e87ae080944"
+    },
+    {
+      "path": "stages/coherence-v2/data/manifests/README.md",
+      "bytes": 141,
+      "sha256": "d87e8e537a722d5c5d89332214e710d82ee027e8b2cb5f8b7805966f6725081f"
+    },
+    {
+      "path": "stages/coherence-v2/data/processed/README.md",
+      "bytes": 98,
+      "sha256": "c65bb8fad5d69de89248ab5514615d1659488e7eeca5acdae10f93e167419397"
+    },
+    {
+      "path": "stages/coherence-v2/data/raw/README.md",
+      "bytes": 97,
+      "sha256": "ebaac1b2283cd6c07be38ae701c15e7ca491b35e57c55683fd5cb4153c196e6f"
+    },
+    {
+      "path": "stages/coherence-v2/docs/00_start_here.md",
+      "bytes": 1573,
+      "sha256": "271a634bb78b82f53707e3f8fb162519b5db62c7c10fbdc505e92106e139df97"
+    },
+    {
+      "path": "stages/coherence-v2/docs/01_financial_contract.md",
+      "bytes": 1247,
+      "sha256": "1979f58d5a598a819b1c3cf27c881d0425da0fd0e1e96302f2963895cc329c2a"
+    },
+    {
+      "path": "stages/coherence-v2/docs/02_mathematical_specification.md",
+      "bytes": 1922,
+      "sha256": "786eed3027a8894ffeb36abcf198f8d29c6f42813fb13f9228fa9b85b6511aa9"
+    },
+    {
+      "path": "stages/coherence-v2/docs/03_model_architecture.md",
+      "bytes": 2273,
+      "sha256": "6cf43b7ccf875ecc92506f00d6fd620d3858d16acebc27a2c0f82a8973722e7a"
+    },
+    {
+      "path": "stages/coherence-v2/docs/04_validation_plan.md",
+      "bytes": 1703,
+      "sha256": "6a6b1b9ab3e135eaa72a5b85d164341993dd484769685c171bed59d2ce0f12dc"
+    },
+    {
+      "path": "stages/coherence-v2/docs/05_data_dictionary.md",
+      "bytes": 1243,
+      "sha256": "1f58a397c4083e05cbe9bede2c2265a390f4292d33c681fbbc6cbebfc4e3b8cf"
+    },
+    {
+      "path": "stages/coherence-v2/docs/06_glossary.md",
+      "bytes": 1573,
+      "sha256": "fa33d8e7fb910bdfcf0d27496d371a22541ab23c8c776678183248f93dbfe232"
+    },
+    {
+      "path": "stages/coherence-v2/docs/decisions/0001-economic-core-separate-from-legal-wrapper.md",
+      "bytes": 773,
+      "sha256": "76fd7d4744a5729a6bb62f8ebd7201aac202e6afc2306b73516f991f65f57a0f"
+    },
+    {
+      "path": "stages/coherence-v2/docs/decisions/ADR-001-python-is-primary.md",
+      "bytes": 1938,
+      "sha256": "df8831cbf414d220d7728dd0e9e057d0a9f256672d5dfd2a2db03f5d5960d500"
+    },
+    {
+      "path": "stages/coherence-v2/docs/decisions/ADR-002-event-driven-simulation-is-primary.md",
+      "bytes": 2299,
+      "sha256": "60a968d48fabff251c796c5efd5a52d9e67a2bd930055f59af14994fd97840e7"
+    },
+    {
+      "path": "stages/coherence-v2/docs/decisions/ADR-003-legal-wrapper-excluded-from-core-mathematics.md",
+      "bytes": 2345,
+      "sha256": "4d11c45cc4ce9503680e6ece9211f5db45839070a5091a909ced9b62e074bb3e"
+    },
+    {
+      "path": "stages/coherence-v2/docs/decisions/ADR-004-assumptions-require-provenance.md",
+      "bytes": 1911,
+      "sha256": "7403c98ee3167decdd77cbb67ea52ac36db499abcbabe904daed52f648847d8e"
+    },
+    {
+      "path": "stages/coherence-v2/docs/decisions/ADR-005-separate-model-outputs-from-platformco-valuation.md",
+      "bytes": 2317,
+      "sha256": "c5b43b7b65b4a0e5d8ce0c51d9dd9e188a18f29b90db2e98eea85964d3f46747"
+    },
+    {
+      "path": "stages/coherence-v2/docs/decisions/ADR-006-observations-separate-from-parameters.md",
+      "bytes": 1697,
+      "sha256": "de0bb24848770f857853dd0182a5aeffde5e95eb53c18db0f83fdb49eabb4d4d"
+    },
+    {
+      "path": "stages/coherence-v2/docs/decisions/README.md",
+      "bytes": 1303,
+      "sha256": "fbb689818f049fa435773e66d5212e5ceaac47fc5de527e6861d963ed631ef42"
+    },
+    {
+      "path": "stages/coherence-v2/docs/empirical_calibration/00_overview.md",
+      "bytes": 1320,
+      "sha256": "8d68ed856d4542a93dd4b8c6617ef1e7ac433a4687b4d49f7f12e4acd4efcaa2"
+    },
+    {
+      "path": "stages/coherence-v2/docs/empirical_calibration/01_data_mapping.md",
+      "bytes": 1065,
+      "sha256": "09b79745a1a8d1c833c609bac8ece18e31bec592bc17fba0fc222d61881e0394"
+    },
+    {
+      "path": "stages/coherence-v2/docs/empirical_calibration/02_return_distribution.md",
+      "bytes": 922,
+      "sha256": "00e1c61399ada8c9af4e8b8a8976242f96ac785407d81beedf1e1633054302ff"
+    },
+    {
+      "path": "stages/coherence-v2/docs/empirical_calibration/03_tail_convention.md",
+      "bytes": 856,
+      "sha256": "f57af18ec3267fab81b54565ac6c351a01a83c412aa81d40e212fa531273eeee"
+    },
+    {
+      "path": "stages/coherence-v2/docs/empirical_calibration/04_model_risk.md",
+      "bytes": 727,
+      "sha256": "66c5387033be0ba0f3c37bdd3d2fb69124d1bb95fb83142958436696996d35b0"
+    },
+    {
+      "path": "stages/coherence-v2/docs/empirical_calibration/05_validation.md",
+      "bytes": 848,
+      "sha256": "729e60c223b058395e5c2f03f1babd33cbb8e105d30116ce60b89763612e60a4"
+    },
+    {
+      "path": "stages/coherence-v2/docs/empirical_calibration/06_coherence_dependence_v2.md",
+      "bytes": 3683,
+      "sha256": "e9da9ca94f22573852f1ec3821db1d83024affb2fe7dcf99d388bed0fe4c505a"
+    },
+    {
+      "path": "stages/coherence-v2/docs/empirical_calibration/unit_of_observation_audit.md",
+      "bytes": 6601,
+      "sha256": "c20f91e0233f25c57ca190fbfe58625eb687ba8b3e23aec651f818bf603042de"
+    },
+    {
+      "path": "stages/coherence-v2/docs/research/original_readme.md",
+      "bytes": 375,
+      "sha256": "390a3d458f8431aa83b3e18c39784738a2dd75d0dc1c7711fdb2fd6e0bbdc425"
+    },
+    {
+      "path": "stages/coherence-v2/notebooks/README.md",
+      "bytes": 172,
+      "sha256": "3baa1d1f2bb3118041b57acc1cb13253a87194f5399168d35cfbdfa581e7fd8f"
+    },
+    {
+      "path": "stages/coherence-v2/pyproject.toml",
+      "bytes": 719,
+      "sha256": "b67de86ef93bd6aebda8047a65354ed36cd6bbd340f9a0beda8bd4b83f14996c"
+    },
+    {
+      "path": "stages/coherence-v2/requirements.lock",
+      "bytes": 327,
+      "sha256": "85c37644a95e176dd865e8cd236acd917d5070c0875eb9e7979eff60565eafa9"
+    },
+    {
+      "path": "stages/coherence-v2/runs/README.md",
+      "bytes": 623,
+      "sha256": "84f98f8fd05b595fced6fb1ad21214b2853c868f48d7ad8a991afd3ad4d22849"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/__init__.py",
+      "bytes": 81,
+      "sha256": "65017669ffd5471f1261334e382c63fb2b8d6ea7a99f9f423bf3ac85afa357aa"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/calibration/__init__.py",
+      "bytes": 658,
+      "sha256": "3a3cf9bea8ef27821e704f691aff863238d4767369b5fb1ba566674ee07c2470"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/calibration/coherence_dependence.py",
+      "bytes": 54513,
+      "sha256": "6ab647f8b2e509cb80948693e64f711a5dd9fe847830be19b11d510811b65cf6"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/calibration/constraints.py",
+      "bytes": 5135,
+      "sha256": "38edb9a7f37d8e842dc47b5c29527c7bf1357497efd8c14eebe6e8d0814823ec"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/calibration/diagnostics.py",
+      "bytes": 6415,
+      "sha256": "c45d6b29d6b63e972c425dd1465d6af2d0b6d63d536a150b5e5ae6aff5e216fd"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/calibration/parameter_models.py",
+      "bytes": 8860,
+      "sha256": "9db7d8cc0576a8a2149ee2c1960a9cf3627be8707c0a5123d3b05ea6d97422be"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/calibration/terminal_fit.py",
+      "bytes": 35838,
+      "sha256": "cc95c5272b69e8da6bd8618b108702b5a4f34c3953031b5cafedbfc3cfbb5ba3"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/calibration/uncertainty.py",
+      "bytes": 2034,
+      "sha256": "277a464b9e634b4ebe0656f144b51f69cc76e71d1a560bca500ac8f91812d278"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/cli.py",
+      "bytes": 3532,
+      "sha256": "e3dc2848f01efc97a0ed651bcbb98d80c16b4deda5ecce2a129fc0c0f275f2f5"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/core/__init__.py",
+      "bytes": 286,
+      "sha256": "1e095bdf84b7cc36faaa04505b3637f723c2cbc8e2c8532eeaf518eeae8c2e20"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/core/config.py",
+      "bytes": 13954,
+      "sha256": "f9de2d9b1af18d3bb9a6a08206dd038121719efe6a3164f5610ac83753ed8b63"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/core/contracts.py",
+      "bytes": 3456,
+      "sha256": "4a0024f8791a11c23d59518ed962461253265d4caa15a5d50dd2bddcb74b530e"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/core/enums.py",
+      "bytes": 578,
+      "sha256": "83c5f85392fced0a8ca7a4731c32b0d6d85c7b1b72906f6a76f7160e123fe43d"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/core/metrics.py",
+      "bytes": 1858,
+      "sha256": "6a86d43482af4644d4f0f4406d889f7a5db2e16c2365b34451d7319fdcf3c310"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/core/provenance.py",
+      "bytes": 2199,
+      "sha256": "8f814418981d12a5b12a036f7a0f52c0a17a7755a7977486380166780cd3d00f"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/core/types.py",
+      "bytes": 7037,
+      "sha256": "7302f13a566fd09e7595fb6f07ad871201a9ab19def23b96287eaf3b6e9f51c7"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/economics/__init__.py",
+      "bytes": 68,
+      "sha256": "33dced24a0b196627927137964ffd6f1f9c468e243764e2a38878c0dc8570558"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/macro/__init__.py",
+      "bytes": 213,
+      "sha256": "927d5b92f03bec4f8e86f8b2a6ddbcf4f1fc5e4fd772c1ca9aaa4c614c2fc4a8"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/macro/sampler.py",
+      "bytes": 1312,
+      "sha256": "efd5c862e1d1bb7aec9350f0ebf406131d7a8870283c8f49424169b3a82c1bbc"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/models/__init__.py",
+      "bytes": 52,
+      "sha256": "7c53f70161564d38ac9c655cdf2efdd493ea86ef10928fd62616c8d6e4bd42a4"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/models/event_driven/__init__.py",
+      "bytes": 192,
+      "sha256": "f3018399f6ca5a309a22e8b064bfa01ec518204fd1d219b06d35c6e85e958eac"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/models/event_driven/prototype.py",
+      "bytes": 2335,
+      "sha256": "d269975fb18e3be82ae4fd7e0711f817d4115eccb1c1037b9cb992cbcbd71fd5"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/models/historical_bootstrap/__init__.py",
+      "bytes": 191,
+      "sha256": "99d86da9a87ca3fbad16608a110d37db446c2dc154eb338711866492c1341364"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/models/historical_bootstrap/interface.py",
+      "bytes": 604,
+      "sha256": "fe5161901eae77b077c32a86e8ee46a4a92790b3bd22118bb856dd3ff23c755f"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/models/terminal/__init__.py",
+      "bytes": 288,
+      "sha256": "05d8e2ac7fc6b17b3249d68926f2a7ac4f608c0c75157d7460422166a4c697f8"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/models/terminal/empirical_mixture.py",
+      "bytes": 11252,
+      "sha256": "4273f6051e7eabafa5bdb553f228178c62ba9e904cfc675674f514a27009d836"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/models/terminal/structural.py",
+      "bytes": 10468,
+      "sha256": "0ad0c0235b1970ff7a50ba7f91f84dcba318de941cffae49af0d3cd426968709"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/protection/__init__.py",
+      "bytes": 219,
+      "sha256": "5976f78399002771d9569de9e16446e95b4d8bdf9956ef0f58da8bcb372e831a"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/protection/layers.py",
+      "bytes": 930,
+      "sha256": "95e856204556ba42153bab1564a656015eea8cb4ac0046ccba545d5f6152d9d9"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/reporting/__init__.py",
+      "bytes": 54,
+      "sha256": "0a06eb2f76974b51368b3f9d05a10557bfefd441d571f6958c7f8a42c31dedaa"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/reporting/artifacts.py",
+      "bytes": 13707,
+      "sha256": "a214bff49b428a9d0894c2b7577df8ef5a9eb8215a56fcd97db915180251931b"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/risk/__init__.py",
+      "bytes": 144,
+      "sha256": "ad00282939eb14194b6550e1b992561a559a6139ff04475b527f5fbae4e8e98d"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/risk/metrics.py",
+      "bytes": 2642,
+      "sha256": "ecebaa4af8fe6a071973a010bf8740d2174ea5d242c3b5b99d895125d3522281"
+    },
+    {
+      "path": "stages/coherence-v2/src/invariant/startup/__init__.py",
+      "bytes": 79,
+      "sha256": "181b2f5bb0691155736a306b647c82765bce0e5675a6528b56cfc1f018913835"
+    },
+    {
+      "path": "stages/coherence-v2/tests/calibration/test_coherence_dependence.py",
+      "bytes": 5567,
+      "sha256": "10dc3982d4040e9734da80b565977097bd94066cab99868accb1e07d93fc2123"
+    },
+    {
+      "path": "stages/coherence-v2/tests/calibration/test_empirical_constraints.py",
+      "bytes": 4145,
+      "sha256": "23ee2a473767fa40105b1020301915eeb3df85bfb13b83a853528b4dc2b7ac5f"
+    },
+    {
+      "path": "stages/coherence-v2/tests/conftest.py",
+      "bytes": 784,
+      "sha256": "18b267218b086d5700c1c6a90ff56ae018836e6e5066cc5c98af64dfeb406faf"
+    },
+    {
+      "path": "stages/coherence-v2/tests/empirical/test_empirical_mixture.py",
+      "bytes": 6564,
+      "sha256": "9fa621d484e03cb09e89253ee8545fb7cfceffb6d57590909ccf9567595cb7b6"
+    },
+    {
+      "path": "stages/coherence-v2/tests/integration/test_run_artifacts.py",
+      "bytes": 1579,
+      "sha256": "7a1f6a8788773b9ab44be06bae9add6aa8ef2353eadf1f26b7e259c04768f2da"
+    },
+    {
+      "path": "stages/coherence-v2/tests/regression/test_reference_scenario.py",
+      "bytes": 1072,
+      "sha256": "8af9c7efd26185fd6bb044868d060435b938cbf5f34ddb0407acc8584d43cef7"
+    },
+    {
+      "path": "stages/coherence-v2/tests/statistical/test_metrics.py",
+      "bytes": 587,
+      "sha256": "0e78dfdac19d4e649a8172aebc91ee33af561248e2deefa87b2811024a75a71a"
+    },
+    {
+      "path": "stages/coherence-v2/tests/unit/test_configuration.py",
+      "bytes": 2269,
+      "sha256": "85c0be695acae7a8c81eb90331c88782a88d399045de42e5bd6806ef29e41d8d"
+    },
+    {
+      "path": "stages/coherence-v2/tests/unit/test_contracts.py",
+      "bytes": 1731,
+      "sha256": "523e50ca7c858f8106f97277994d2b16103a9faa45e6084aa4630deed827c6e1"
+    },
+    {
+      "path": "stages/coherence-v2/tests/unit/test_event_driven.py",
+      "bytes": 812,
+      "sha256": "d0fce789dcca7f2e7d93a991faffe225a3eb74d17eaa8d6705dbb83f9f8c92f7"
+    },
+    {
+      "path": "stages/coherence-v2/tests/unit/test_simulation.py",
+      "bytes": 2978,
+      "sha256": "bf4b9b3d07824a7ba6520757912ea61b1c38b32511c122d26c9c67a1982d9d9e"
+    },
+    {
+      "path": "tests/calibration/test_empirical_constraints.py",
+      "bytes": 4145,
+      "sha256": "23ee2a473767fa40105b1020301915eeb3df85bfb13b83a853528b4dc2b7ac5f"
+    },
+    {
+      "path": "tests/conftest.py",
+      "bytes": 1341,
+      "sha256": "444c97e448acef55b8edf091bab72a3eea0b630d62bb50e08bcb211c25ffa876"
+    },
+    {
+      "path": "tests/empirical/test_empirical_mixture.py",
+      "bytes": 6564,
+      "sha256": "9fa621d484e03cb09e89253ee8545fb7cfceffb6d57590909ccf9567595cb7b6"
+    },
+    {
+      "path": "tests/integration/test_run_artifacts.py",
+      "bytes": 1579,
+      "sha256": "7a1f6a8788773b9ab44be06bae9add6aa8ef2353eadf1f26b7e259c04768f2da"
+    },
+    {
+      "path": "tests/regression/test_reference_scenario.py",
+      "bytes": 1072,
+      "sha256": "8af9c7efd26185fd6bb044868d060435b938cbf5f34ddb0407acc8584d43cef7"
+    },
+    {
+      "path": "tests/selection_frontier/test_frontier_config.py",
+      "bytes": 2248,
+      "sha256": "15255dd0db4367397353b8c57b57c8c57d529d30b5441a3b11369797b88348eb"
+    },
+    {
+      "path": "tests/selection_frontier/test_platform_economics.py",
+      "bytes": 4962,
+      "sha256": "820d81d2025e3152f8e6c4783d44b2346298b1b1f7a77979874bafe77725438c"
+    },
+    {
+      "path": "tests/selection_frontier/test_portfolio_selection.py",
+      "bytes": 9330,
+      "sha256": "37f3604b093c315f16d77ec622808500f6aa11e178c3d4c0d4a2cd212d039ab4"
+    },
+    {
+      "path": "tests/statistical/test_metrics.py",
+      "bytes": 587,
+      "sha256": "0e78dfdac19d4e649a8172aebc91ee33af561248e2deefa87b2811024a75a71a"
+    },
+    {
+      "path": "tests/unit/test_configuration.py",
+      "bytes": 2313,
+      "sha256": "656e24bc7524050ea4f3b70e9fa7deaefb55b2523f2e77a124583b15c8eb8e92"
+    },
+    {
+      "path": "tests/unit/test_contracts.py",
+      "bytes": 1731,
+      "sha256": "523e50ca7c858f8106f97277994d2b16103a9faa45e6084aa4630deed827c6e1"
+    },
+    {
+      "path": "tests/unit/test_event_driven.py",
+      "bytes": 812,
+      "sha256": "d0fce789dcca7f2e7d93a991faffe225a3eb74d17eaa8d6705dbb83f9f8c92f7"
+    },
+    {
+      "path": "tests/unit/test_simulation.py",
+      "bytes": 2978,
+      "sha256": "bf4b9b3d07824a7ba6520757912ea61b1c38b32511c122d26c9c67a1982d9d9e"
+    }
+  ]
+}

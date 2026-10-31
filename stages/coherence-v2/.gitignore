@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.ruff_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Generated run artifacts are reproducible but should not be committed by default.
+runs/*
+!runs/README.md
+
+# Local data and notebook checkpoints.
+.ipynb_checkpoints/
+data/raw/*
+data/interim/*
+data/processed/*
+data/manifests/*
+!data/**/README.md

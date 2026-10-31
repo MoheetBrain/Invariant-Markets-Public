@@ -1,0 +1,30 @@
+extends: ../base.yaml
+scenario_name: "stress_ipo_freeze"
+description: "Reduces exit probabilities and large-outcome probabilities to represent a synthetic exit freeze; no real market data are used."
+random_seed: 20260818
+macro:
+  regimes:
+    normal:
+      exit_probability: {value: 0.05}
+      outcome_bands:
+        total_failure: {probability: {value: 0.60}}
+        partial_recovery: {probability: {value: 0.17}}
+        modest_success: {probability: {value: 0.18}}
+        large_success: {probability: {value: 0.045}}
+        extreme_winner: {probability: {value: 0.005}}
+    weak:
+      exit_probability: {value: 0.03}
+      outcome_bands:
+        total_failure: {probability: {value: 0.75}}
+        partial_recovery: {probability: {value: 0.16}}
+        modest_success: {probability: {value: 0.075}}
+        large_success: {probability: {value: 0.014}}
+        extreme_winner: {probability: {value: 0.001}}
+    crisis:
+      exit_probability: {value: 0.01}
+      outcome_bands:
+        total_failure: {probability: {value: 0.88}}
+        partial_recovery: {probability: {value: 0.09}}
+        modest_success: {probability: {value: 0.029}}
+        large_success: {probability: {value: 0.0008}}
+        extreme_winner: {probability: {value: 0.0002}}

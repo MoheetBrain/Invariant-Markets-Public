@@ -1,0 +1,9 @@
+extends: ../base.yaml
+scenario_name: "stress_systemic_crash"
+description: "All portfolios begin in the synthetic crisis regime to expose shared wrong-way risk."
+random_seed: 20260816
+macro:
+  initial_state_probabilities:
+    normal: {value: 0.0}
+    weak: {value: 0.0}
+    crisis: {value: 1.0}

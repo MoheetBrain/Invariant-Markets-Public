@@ -1,0 +1,14 @@
+{
+  "analysis_version": "0.3.1-empirical-coherence-v2",
+  "artifact_status": "S2b-a.1 model-risk analysis; no refitted central marginal model.",
+  "config_hash": "5c35c0c7126123d15f8c30a576b9c0627264b75532f47f6371f5fa4d92acb099",
+  "config_source": "configs/research/empirical_coherence_dependence_v2.yaml",
+  "dependency_lock_hash": "85c37644a95e176dd865e8cd236acd917d5070c0875eb9e7979eff60565eafa9",
+  "git_branch": "feat/empirical-coherence-dependence-v2",
+  "git_commit_hash": "1dff3df5be8f2588290d6da535ca69aac0f8b2ce",
+  "git_worktree_dirty": false,
+  "observation_audit_hash": "8dee02d450c7ec25482767bde69ba125f29e2f8afd39a3a24a77b43f49c1babb",
+  "python_version": "3.14.6",
+  "random_seed": 20260815,
+  "timestamp_utc": "2026-08-15T09:19:37.433350+00:00"
+}

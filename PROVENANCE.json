@@ -1,0 +1,20 @@
+{
+  "root_source": {
+    "branch": "feat/selection-feasibility-frontier",
+    "commit": "a3f1345c761ef404b8dab44dd61d2fc391d321d2"
+  },
+  "earlier_remote_sources": {
+    "main": "c10babf851fcd9e9c76b49bb0f83701e73dfc8a4",
+    "feat/empirical-s2b-a": "fade30180864ba2e2cebf7371fd12a12a25b5a5e"
+  },
+  "coherence_stage": {
+    "branch": "feat/empirical-coherence-dependence-v2",
+    "commit": "1dff3df5be8f2588290d6da535ca69aac0f8b2ce"
+  },
+  "saved_results": {
+    "synthetic-baseline": "baseline-20260813T154455Z-b41caa4d",
+    "coherence-v2": "empirical_coherence_dependence_v2-20260815T091936Z-5c35c0c7"
+  },
+  "selection_frontier_saved_run": "NOT_LOCATED",
+  "publication": "Clean snapshot; original Git objects, private commit metadata and private histories excluded."
+}

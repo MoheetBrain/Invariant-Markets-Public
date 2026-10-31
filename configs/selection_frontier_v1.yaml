@@ -1,0 +1,454 @@
+model_version: "0.4.0-selection-frontier"
+scenario_name: "selection_frontier_v1"
+description: >-
+  S2b-a.1 adversarial feasibility study of hypothetical underwriting selection,
+  portfolio scale, macro/sector dependence, principal floors, and separate
+  PlatformCo scenario economics. No selection, price, demand, or founder-supply
+  scenario is empirically fitted.
+assumption_status: "EMPIRICAL_BASE_WITH_MODEL_RISK_SCENARIOS"
+empirical_terminal_config_path: "configs/calibrated_terminal_v1.yaml"
+empirical_constraints_path: "data/calibration/empirical_constraints_v1.yaml"
+source_registry_path: "data/calibration/source_registry.yaml"
+
+simulation:
+  random_seed: 2026081401
+  batch_size: 250
+  core_paths: 100000
+  surface_paths: 10000
+  tail_sensitivity_paths: 10000
+  stress_paths: 10000
+  frontier_discovery_paths: 1000
+  frontier_refinement_paths: 50000
+  convergence_path_counts: [10000, 25000, 50000, 100000]
+  confidence_levels: [0.95, 0.99, 0.995]
+  marginal_evaluation_points: 200000
+  exponential_tilt_quadrature_points: 50000
+  all_failure_quadrature_nodes: 80
+
+portfolio:
+  sizes: [100, 250, 500, 1000, 2000]
+  protection_fractions: [0.50, 0.75, 0.90, 1.00]
+  canonical_reporting_size: 1000
+  canonical_reporting_floor: 1.00
+  surface_protection_fractions: [0.75, 1.00]
+  equal_weighted: true
+  survivor_multiples: [1.0, 1.25, 1.5, 2.0, 3.0, 5.0, 10.0]
+  failure_recoveries: [0.0, 0.10, 0.25]
+  sectors:
+    - "AI / software"
+    - "compute / semiconductor"
+    - "energy / grid"
+    - "robotics / industrial"
+    - "biotech / computational biology"
+  constructions:
+    broad_venture:
+      portfolio_type: "broad_venture"
+      sector_weights: [0.20, 0.20, 0.20, 0.20, 0.20]
+      selection_level: "unselected"
+      interpretation: "Base S2b-a universe with symmetric factor diversification."
+      provenance: "MODEL_RISK_SCENARIO"
+    hyper_selected_ai:
+      portfolio_type: "ai_only"
+      sector_weights: [1.0]
+      selection_level: "hyper"
+      interpretation: "All companies share one AI/software sector factor."
+      provenance: "MODEL_RISK_SCENARIO"
+    hyper_selected_frontier:
+      portfolio_type: "frontier_diversified"
+      sector_weights: [0.20, 0.20, 0.20, 0.20, 0.20]
+      selection_level: "hyper"
+      interpretation: "Equal sector allocation; also the symmetric minimum-factor-concentration solution."
+      provenance: "MODEL_RISK_SCENARIO"
+    frontier_concentration_stress:
+      portfolio_type: "frontier_concentrated"
+      sector_weights: [0.50, 0.15, 0.15, 0.10, 0.10]
+      selection_level: "hyper"
+      interpretation: "Deliberate concentration stress, not an optimized allocation."
+      provenance: "MODEL_RISK_SCENARIO"
+
+selection:
+  target_constraint_scenarios:
+    - {name: "unselected", probability_below_1x: 0.65, probability_ge_10x: 0.04, provenance: "MODEL_RISK_SCENARIO"}
+    - {name: "weak", probability_below_1x: 0.60, probability_ge_10x: 0.05, provenance: "HYPOTHETICAL_SELECTION_SKILL"}
+    - {name: "moderate", probability_below_1x: 0.55, probability_ge_10x: 0.06, provenance: "HYPOTHETICAL_SELECTION_SKILL"}
+    - {name: "strong", probability_below_1x: 0.50, probability_ge_10x: 0.08, provenance: "HYPOTHETICAL_SELECTION_SKILL"}
+    - {name: "hyper", probability_below_1x: 0.45, probability_ge_10x: 0.10, provenance: "HYPOTHETICAL_SELECTION_SKILL"}
+    - {name: "extreme_hypothesis", probability_below_1x: 0.40, probability_ge_10x: 0.10, provenance: "HYPOTHETICAL_SELECTION_SKILL"}
+  reallocation_rule: >-
+    Preserve the base complete/partial split within X<1, preserve the base
+    1-5x/5-10x split within 1<=X<10, and preserve P(X>=50|X>=10).
+  exponential_tilt:
+    score_function: "log(1+x)"
+    strengths: [0.0, 0.10, 0.20, 0.35, 0.50]
+    provenance: "HYPOTHETICAL_SELECTION_SKILL"
+  hindsight_prohibition: >-
+    Selection represents p(X | information available at investment time).
+    Exit status, future valuation, later funding, and eventual revenue are forbidden features.
+
+dependence:
+  provenance: "MODEL_RISK_SCENARIO"
+  central:
+    broad_venture: {rho_macro: 0.05, rho_sector: 0.05}
+    hyper_selected_ai: {rho_macro: 0.05, rho_sector: 0.20}
+    hyper_selected_frontier: {rho_macro: 0.05, rho_sector: 0.10}
+    frontier_concentration_stress: {rho_macro: 0.05, rho_sector: 0.10}
+  levels:
+    low: {rho_macro: 0.025, rho_sector: 0.05}
+    medium: {rho_macro: 0.05, rho_sector: 0.15}
+    high: {rho_macro: 0.10, rho_sector: 0.30}
+    extreme: {rho_macro: 0.20, rho_sector: 0.40}
+  detailed_macro_grid: [0.0, 0.025, 0.05, 0.10, 0.15, 0.20]
+  detailed_sector_grid: [0.0, 0.05, 0.10, 0.15, 0.20, 0.30, 0.40]
+  feasibility_path:
+    - {dependence_index: 0.00, rho_macro: 0.00, rho_sector: 0.00}
+    - {dependence_index: 0.05, rho_macro: 0.025, rho_sector: 0.025}
+    - {dependence_index: 0.10, rho_macro: 0.025, rho_sector: 0.075}
+    - {dependence_index: 0.15, rho_macro: 0.05, rho_sector: 0.10}
+    - {dependence_index: 0.20, rho_macro: 0.05, rho_sector: 0.15}
+    - {dependence_index: 0.30, rho_macro: 0.10, rho_sector: 0.20}
+    - {dependence_index: 0.40, rho_macro: 0.10, rho_sector: 0.30}
+    - {dependence_index: 0.50, rho_macro: 0.15, rho_sector: 0.35}
+    - {dependence_index: 0.60, rho_macro: 0.20, rho_sector: 0.40}
+  equal_correlation_diagnostic:
+    portfolio_sizes: [100, 500, 1000, 2000]
+    rho_values: [0.0, 0.01, 0.02, 0.05, 0.10, 0.20, 0.30]
+  selection_frontier_indices:
+    low: 0.10
+    medium: 0.20
+    high: 0.40
+    extreme: 0.60
+
+tail_models:
+  - {name: "unbounded_pareto", mode: "unbounded_pareto", beta: 1.430676558, threshold: 10.0, cap: null, provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "capped_500x", mode: "capped_pareto", beta: 1.430676558, threshold: 10.0, cap: 500.0, provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "capped_1000x", mode: "capped_pareto", beta: 1.430676558, threshold: 10.0, cap: 1000.0, provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "truncated_pareto", mode: "truncated_pareto", beta: 1.430676558, threshold: 10.0, cap: 1000.0, provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "no_mega_winner", mode: "no_mega_winner", beta: 1.430676558, threshold: 10.0, cap: 50.0, provenance: "MODEL_RISK_SCENARIO"}
+baseline_tail_model: "capped_1000x"
+
+protection_support:
+  founder_warrant:
+    initial_fraction: 0.02
+    dilution_fractions: [0.205, 0.201]
+    platform_retained_share_baseline: 0.25
+    provenance: "MODEL_RISK_SCENARIO"
+  generic_stop_loss:
+    attachment_fraction: 0.05
+    limit_fraction: 0.35
+    provenance: "MODEL_RISK_SCENARIO"
+
+frontiers:
+  expected_claim_targets: [0.01, 0.025, 0.05, 0.10]
+  claim_probability_targets: [0.05, 0.10, 0.25]
+  selection_expected_claim_targets: [0.01, 0.025, 0.05]
+  canonical_refinement_expected_claim_target: 0.025
+  refinement_portfolio_sizes: [1000, 2000]
+  refinement_protection_fractions: [0.75, 0.90, 1.00]
+  material_saturation_threshold_per_100_companies: 0.00010
+
+public_innovation_sleeve:
+  enabled: true
+  allocations: [0.0, 0.10, 0.25, 0.50]
+  outcome_multiples: [0.50, 1.00, 1.50, 3.00]
+  outcome_probabilities: [0.20, 0.30, 0.35, 0.15]
+  provenance: "MODEL_RISK_SCENARIO"
+  interpretation: "Optional isolated public-innovation sleeve; no security is risk-free."
+
+platform_economics:
+  annual_new_protected_capital: [10000000, 50000000, 100000000, 250000000, 500000000, 1000000000, 2500000000, 5000000000, 10000000000]
+  origination_fee_rates: [0.005, 0.01, 0.02, 0.03]
+  annual_service_fee_rates: [0.0025, 0.005, 0.01]
+  guarantee_arrangement_spreads: [0.0, 0.005, 0.01, 0.02]
+  platform_warrant_shares: [0.0, 0.10, 0.25, 0.50, 1.00]
+  variable_operating_cost_rates: [0.0025, 0.005, 0.01, 0.02]
+  fixed_annual_operating_costs: [1000000, 5000000, 10000000, 25000000, 50000000]
+  external_risk_provider_prices: [0.02, 0.05, 0.075, 0.10, 0.15, 0.20]
+  investor_protection_fee_rates: [0.05, 0.10, 0.15, 0.20, 0.25]
+  variable_risk_admin_cost_rate: 0.005
+  demand_uplifts: [1.0, 1.25, 1.5, 2.0, 3.0, 5.0, 10.0]
+  founder_acceptance_rates: [0.25, 0.50, 0.75, 0.90, 1.00]
+  target_annual_profits: [0, 10000000, 50000000, 100000000, 500000000]
+  external_price_profit_targets: [0, 10000000, 50000000, 100000000]
+  target_annual_revenues: [10000000, 100000000, 1000000000]
+  canonical:
+    annual_new_protected_capital: 500000000
+    origination_fee_rate: 0.02
+    annual_service_fee_rate: 0.005
+    investor_protection_fee_rate: 0.115
+    external_risk_provider_price: 0.10
+    guarantee_arrangement_spread: 0.01
+    platform_warrant_share: 0.25
+    variable_operating_cost_rate: 0.01
+    fixed_annual_operating_cost: 10000000
+    demand_uplift: 2.0
+    founder_acceptance_rate: 0.75
+    platform_is_risk_bearer: false
+  ten_year:
+    years: 10
+    base_annual_unprotected_demand: 250000000
+    annual_issuance_growth_rate: 0.10
+    maturity_years: 7
+    warrant_realization_delay_years: 7
+    operating_cost_growth_rate: 0.05
+    discount_rate: 0.12
+  valuation:
+    revenue_multiples: [2.0, 4.0, 6.0, 10.0]
+    modeled_operating_profit_multiples: [8.0, 12.0, 20.0, 30.0]
+    provenance: "ILLUSTRATIVE_VALUATION_MULTIPLE"
+
+stress_tests:
+  - {name: "frontier_concentration_stress", domain: "risk", change: "sector weights=[50%,15%,15%,10%,10%]", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "no_mega_winner", domain: "risk", change: "tail=no_mega_winner", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "zero_ge_50x", domain: "risk", change: "tail=no_mega_winner", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "tail_exponent_worsens", domain: "risk", change: "beta=1.60", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "ai_sector_shock", domain: "risk", change: "AI sector factor shift=-2", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "macro_recession", domain: "risk", change: "macro factor shift=-2", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "ai_macro_joint_shock", domain: "risk", change: "macro=-2; AI=-2", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "energy_shock", domain: "risk", change: "energy sector factor shift=-2", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "sector_correlation_doubles", domain: "risk", change: "rho_sector=min(2*rho_sector,1-rho_macro)", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "funding_liquidity_freeze", domain: "liquidity", change: "generic stop-loss unavailable; claim unchanged", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "founder_warrant_dilution_doubles", domain: "economics", change: "dilution fractions doubled and capped at 100%", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "selection_skill_disappears", domain: "risk", change: "selection=unselected", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "selected_reverts_to_population", domain: "risk", change: "selection=unselected", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "external_risk_price_doubles", domain: "economics", change: "external price doubled", provenance: "COMMERCIAL_PRICE_SCENARIO"}
+  - {name: "investor_demand_uplift_1x", domain: "economics", change: "U=1", provenance: "MODEL_RISK_SCENARIO"}
+  - {name: "founder_acceptance_25pct", domain: "economics", change: "acceptance=25%", provenance: "MODEL_RISK_SCENARIO"}
+stress_parameters:
+  adverse_factor_shift_standard_deviations: -2.0
+  worsened_tail_exponent_beta: 1.60
+  doubled_founder_dilution_multiplier: 2.0
+  doubled_external_price_multiplier: 2.0
+  low_founder_acceptance_rate: 0.25
+  no_demand_uplift: 1.0
+
+assumptions:
+  SIM-001:
+    name: "Monte Carlo staged path counts"
+    value: "1,000 discovery; 10,000 sensitivity; 50,000 refinement; 100,000 core"
+    unit: "aleatory paths per scenario"
+    meaning: "Numerical precision budget by experiment importance."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Focus computation on primary comparisons and numerical boundaries."
+    mathematical_role: "Controls Monte Carlo error, especially ES99.5."
+    sensitivity_range: "10,000 to 100,000 plus convergence grid"
+    evidence_required: "Numerical convergence and multi-seed diagnostics."
+  SEL-001:
+    name: "Selected-company sub-1x rate"
+    value: "40% to 65%"
+    unit: "probability"
+    meaning: "Hypothetical marginal loss-rate improvement from underwriting."
+    provenance: "HYPOTHETICAL_SELECTION_SKILL"
+    reason: "Invert how much selection skill the product requires."
+    mathematical_role: "Sets complete plus partial loss mixture mass."
+    sensitivity_range: "40%, 45%, 50%, 55%, 60%, 65%"
+    evidence_required: "Timestamped historical underwriting backtest without hindsight."
+  SEL-002:
+    name: "Selected-company >=10x rate"
+    value: "4% to 10%"
+    unit: "probability"
+    meaning: "Hypothetical positive-tail uplift from underwriting."
+    provenance: "HYPOTHETICAL_SELECTION_SKILL"
+    reason: "Selection may affect both downside screening and winner capture."
+    mathematical_role: "Sets >=10x mixture mass and renormalizes middle bands."
+    sensitivity_range: "4%, 5%, 6%, 8%, 10%"
+    evidence_required: "Out-of-sample selected-versus-rejected cohort outcomes."
+  SEL-003:
+    name: "Exponential selection tilt"
+    value: "s=0 to 0.50; h(x)=log(1+x)"
+    unit: "dimensionless"
+    meaning: "Smooth monotone reweighting of the empirical base marginal."
+    provenance: "HYPOTHETICAL_SELECTION_SKILL"
+    reason: "Provide a second selection mechanism without band discontinuities."
+    mathematical_role: "p_s(x) proportional to p_0(x) exp(s h(x))."
+    sensitivity_range: "0, 0.10, 0.20, 0.35, 0.50"
+    evidence_required: "Investment-time score calibration against realized MOIC."
+  DEP-001:
+    name: "Macro latent dependence"
+    value: "0 to 0.20"
+    unit: "latent Gaussian variance share"
+    meaning: "Portfolio-wide common-factor loading."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Large N cannot diversify macro states."
+    mathematical_role: "Coefficient rho_macro in latent copula."
+    sensitivity_range: "0, .025, .05, .10, .15, .20"
+    evidence_required: "Company-level outcomes by vintage and macro regime."
+  DEP-002:
+    name: "Sector latent dependence"
+    value: "0 to 0.40"
+    unit: "latent Gaussian variance share"
+    meaning: "Within-sector common-factor loading."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "AI concentration may offset selection benefits."
+    mathematical_role: "Coefficient rho_sector in latent copula."
+    sensitivity_range: "0, .05, .10, .15, .20, .30, .40"
+    evidence_required: "Unique-company row-level return data with sector labels."
+  PORT-001:
+    name: "Equal investment weights"
+    value: true
+    unit: "portfolio construction rule"
+    meaning: "Every company receives 1/N initial capital."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Transparent first feasibility baseline."
+    mathematical_role: "NAV/K equals the arithmetic mean of company MOIC."
+    sensitivity_range: "Future optimized and concentration-constrained weights."
+    evidence_required: "Executable deployment and follow-on policy."
+  PORT-002:
+    name: "Frontier sector allocation"
+    value: "20% per five sectors; 50% AI concentration stress"
+    unit: "capital fraction"
+    meaning: "Sector-factor diversification scenario."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Compare AI-only with broader innovation exposure."
+    mathematical_role: "Maps companies to independent sector factors conditional on macro."
+    sensitivity_range: "equal symmetric optimum and concentration stress"
+    evidence_required: "Investable-company supply and sector capacity constraints."
+  TAIL-001:
+    name: "Terminal winner-tail convention"
+    value: "Pareto beta 1.430676558 with unbounded/capped/truncated/no-mega variants"
+    unit: "survival exponent and MOIC cap"
+    meaning: "Frozen S2b-a tail plus explicit model-risk alternatives."
+    provenance: "CALIBRATED_FROM_AGGREGATE_CONSTRAINTS_AND_MODEL_RISK_SCENARIO"
+    reason: "Winner capture materially affects venture NAV."
+    mathematical_role: "Inverse CDF above 10x."
+    sensitivity_range: "unbounded, 500x cap, 1000x cap, truncated, <50x"
+    evidence_required: "Row-level cash-flow MOIC with censoring and ownership definitions."
+  GUAR-001:
+    name: "Protected fraction"
+    value: "50%, 75%, 90%, 100%"
+    unit: "fraction of initial investor principal"
+    meaning: "Terminal natural floor tested before external protection."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Product feasibility depends strongly on floor height."
+    mathematical_role: "c_T=max(g-NAV/K,0)."
+    sensitivity_range: "0.50 to 1.00"
+    evidence_required: "Candidate contractual terms and legal review."
+  WAR-001:
+    name: "Founder warrant economics"
+    value: "2% initial; 20.5% and 20.1% dilution; 0% to 100% PlatformCo share"
+    unit: "fraction of company terminal value"
+    meaning: "Scenario economic contribution, not liquid claim support."
+    provenance: "MODEL_RISK_SCENARIO_WITH_OBSERVED_AGGREGATE_DILUTION_MEDIANS"
+    reason: "Quantify Q separately from protection risk."
+    mathematical_role: "q_T=q_0 product(1-d_r), then attribution share."
+    sensitivity_range: "Platform share 0%, 10%, 25%, 50%, 100%; dilution stress"
+    evidence_required: "Executed founder terms, ownership, realization, and acceptance data."
+  STOP-001:
+    name: "Generic stop-loss layer"
+    value: "5% attachment; 35% limit"
+    unit: "fraction of principal"
+    meaning: "Wrapper-neutral payout arithmetic only."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Expose risk-transfer quantity without claiming available insurance."
+    mathematical_role: "min(max(claim-attachment,0),limit)."
+    sensitivity_range: "Future quoted attachment and limit grids."
+    evidence_required: "Indicative risk-carrier terms and legal enforceability."
+  G-001:
+    name: "External protection price"
+    value: "2% to 20%"
+    unit: "fraction of protected issuance over contractual horizon"
+    meaning: "Commercial price paid to an external risk provider."
+    provenance: "COMMERCIAL_PRICE_SCENARIO"
+    reason: "Actual G is unknown; test tolerable price."
+    mathematical_role: "Reduces guarantee arrangement margin."
+    sensitivity_range: "2%, 5%, 7.5%, 10%, 15%, 20%"
+    evidence_required: "Written indicative risk-carrier quotations."
+  DEM-001:
+    name: "Investor demand uplift from protection"
+    value: "1x to 10x"
+    unit: "capital-raised multiple"
+    meaning: "Capital with protection divided by capital without protection."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Protection is only commercially useful if demand responds."
+    mathematical_role: "Scales offered protected issuance before founder acceptance."
+    sensitivity_range: "1x, 1.25x, 1.5x, 2x, 3x, 5x, 10x"
+    evidence_required: "Randomized investor demand experiment or signed commitments."
+  SUP-001:
+    name: "Founder acceptance rate"
+    value: "25% to 100%"
+    unit: "fraction of selected founders"
+    meaning: "Share accepting requested warrant economics."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Founder supply constrains deployable capital."
+    mathematical_role: "Deployable issuance equals offered issuance times acceptance."
+    sensitivity_range: "25%, 50%, 75%, 90%, 100%"
+    evidence_required: "Founder offer experiment with observed acceptance by q."
+  REV-001:
+    name: "Platform fee structure"
+    value: "origination 0.5%-3%; service 0.25%-1%; arrangement spread 0%-2%"
+    unit: "fraction of the explicitly named fee base"
+    meaning: "Potential PlatformCo revenue rates."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Translate protected issuance into scenario revenue."
+    mathematical_role: "Multiplies new, outstanding, or charged protected capital."
+    sensitivity_range: "Full configured fee grids"
+    evidence_required: "Validated product terms and willingness-to-pay evidence."
+  OPEX-001:
+    name: "Platform operating costs"
+    value: "variable 0.25%-2%; fixed £1m-£50m"
+    unit: "fraction of new capital and GBP per year"
+    meaning: "Planning assumptions for modeled operating profit."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Profit cannot be inferred from revenue alone."
+    mathematical_role: "Subtracted from scenario revenue."
+    sensitivity_range: "Full configured cost grids"
+    evidence_required: "Bottom-up operating plan and actual cost history."
+  BUS-001:
+    name: "Ten-year business timing"
+    value: "10 years; 7-year maturity; 7-year warrant delay; 10% issuance growth"
+    unit: "years and annual growth rate"
+    meaning: "Cohort timing for outstanding capital and realization."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Fees and warrant proceeds occur on different bases and dates."
+    mathematical_role: "Controls cohort roll-off, fee accrual, and realized warrant timing."
+    sensitivity_range: "Configured canonical timing only in this milestone"
+    evidence_required: "Product maturity, deployment cadence, and realized cash-flow history."
+  NPV-001:
+    name: "Discount rate"
+    value: "12%"
+    unit: "annual nominal rate"
+    meaning: "Scenario discount rate for modeled cash generation."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Make timing visible without claiming a cost of capital estimate."
+    mathematical_role: "Discounts year-t modeled operating profit by (1+r)^t."
+    sensitivity_range: "Future 8%-20% grid"
+    evidence_required: "Financing and risk-adjusted cost-of-capital analysis."
+  VAL-001:
+    name: "Illustrative enterprise-value multiples"
+    value: "revenue 2x-10x; modeled profit 8x-30x"
+    unit: "valuation multiple"
+    meaning: "Arithmetic sensitivity only, not a company valuation or market comp."
+    provenance: "ILLUSTRATIVE_VALUATION_MULTIPLE"
+    reason: "Show conditions required for possible valuation scales."
+    mathematical_role: "Enterprise value equals metric times multiple."
+    sensitivity_range: "Configured multiple grids"
+    evidence_required: "Relevant verified market comps and financing context."
+  PUB-001:
+    name: "Optional public-innovation sleeve"
+    value: "0%-50% allocation; returns 0.5x/1x/1.5x/3x"
+    unit: "capital fraction and terminal gross MOIC"
+    meaning: "Separate barbell architecture; no public security is risk-free."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Test liquidity architecture without contaminating venture base."
+    mathematical_role: "Weighted sum of separate venture and public sleeve returns."
+    sensitivity_range: "0%, 10%, 25%, 50% allocation"
+    evidence_required: "Mandate-specific public index definition and sourced return history."
+  FRONT-001:
+    name: "Feasibility boundary targets and reporting slices"
+    value: "E[claim] 1%/2.5%/5%/10%; P(claim) 5%/10%/25%; canonical N=1,000 and g=100%"
+    unit: "fractions of principal, probabilities, and company count"
+    meaning: "Decision thresholds and canonical slices used to invert dependence and skill."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Convert risk surfaces into tolerable-dependence and required-skill questions."
+    mathematical_role: "Targets for monotone interpolation and high-path boundary checks."
+    sensitivity_range: "Full configured expected-claim, claim-probability, N, and floor grids"
+    evidence_required: "Risk-carrier appetite, product objectives, and decision materiality policy."
+  STR-001:
+    name: "Hostile stress magnitudes"
+    value: "factor shift -2 sigma; beta 1.60; dilution and external price doubled; U=1; acceptance=25%"
+    unit: "standard deviations, survival exponent, multipliers, and probabilities"
+    meaning: "Adverse but explicitly hypothetical falsification scenarios."
+    provenance: "MODEL_RISK_SCENARIO"
+    reason: "Test whether conclusions survive loss of skill, shocks, price pressure, and supply limits."
+    mathematical_role: "Overrides selected factor, tail, dilution, price, demand, and acceptance inputs."
+    sensitivity_range: "Named stress suite in stress_tests and stress_parameters"
+    evidence_required: "Historical crisis calibration, quoted prices, and observed founder/investor behavior."

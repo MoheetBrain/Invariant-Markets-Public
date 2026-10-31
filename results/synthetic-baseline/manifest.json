@@ -1,0 +1,13 @@
+{
+  "config_hash": "b41caa4dc29cf688d5dcbd5df89ffbf49817fa410887f5b24872beb1a25ac9ac",
+  "config_source": "configs/base.yaml",
+  "data_status": "No empirical input data used; startup-return assumptions are synthetic SCENARIO values.",
+  "dependency_lock_hash": "85c37644a95e176dd865e8cd236acd917d5070c0875eb9e7979eff60565eafa9",
+  "git_commit_hash": "f1b40dcfb2ce425c9c4f4efa066714f86b878214",
+  "git_worktree_dirty": true,
+  "input_data_hashes": [],
+  "model_version": "0.2.0-synthetic",
+  "python_version": "3.14.6",
+  "random_seed": 42,
+  "timestamp_utc": "2026-08-13T15:44:55.410036+00:00"
+}

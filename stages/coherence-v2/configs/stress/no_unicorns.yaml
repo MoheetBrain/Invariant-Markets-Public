@@ -1,0 +1,18 @@
+extends: ../base.yaml
+scenario_name: "stress_no_unicorns"
+description: "Removes the synthetic extreme-winner branch to test tail dependence on a few outsized outcomes."
+random_seed: 20260817
+macro:
+  regimes:
+    normal:
+      outcome_bands:
+        large_success: {probability: {value: 0.08}}
+        extreme_winner: {probability: {value: 0.0}}
+    weak:
+      outcome_bands:
+        large_success: {probability: {value: 0.03}}
+        extreme_winner: {probability: {value: 0.0}}
+    crisis:
+      outcome_bands:
+        large_success: {probability: {value: 0.005}}
+        extreme_winner: {probability: {value: 0.0}}

@@ -1,0 +1,27 @@
+extends: ../base.yaml
+scenario_name: "stress_total_wipeout"
+description: "Analytical stress case in which every startup fails in every macro state; used to test the maximum floor claim."
+random_seed: 20260821
+macro:
+  regimes:
+    normal:
+      outcome_bands:
+        total_failure: {probability: {value: 1.0}}
+        partial_recovery: {probability: {value: 0.0}}
+        modest_success: {probability: {value: 0.0}}
+        large_success: {probability: {value: 0.0}}
+        extreme_winner: {probability: {value: 0.0}}
+    weak:
+      outcome_bands:
+        total_failure: {probability: {value: 1.0}}
+        partial_recovery: {probability: {value: 0.0}}
+        modest_success: {probability: {value: 0.0}}
+        large_success: {probability: {value: 0.0}}
+        extreme_winner: {probability: {value: 0.0}}
+    crisis:
+      outcome_bands:
+        total_failure: {probability: {value: 1.0}}
+        partial_recovery: {probability: {value: 0.0}}
+        modest_success: {probability: {value: 0.0}}
+        large_success: {probability: {value: 0.0}}
+        extreme_winner: {probability: {value: 0.0}}

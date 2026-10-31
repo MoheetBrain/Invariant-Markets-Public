@@ -1,0 +1,181 @@
+version: 1
+data_quality_classes:
+  - OBSERVED_RAW
+  - OBSERVED_AGGREGATE
+  - FITTED
+  - CALIBRATED
+  - PROXY
+  - EXPERT
+  - MODEL_RISK_SCENARIO
+  - SYNTHETIC_SCENARIO
+  - UNKNOWN
+investment_return_constraints:
+  below_1x:
+    probability: 0.65
+    tolerance: 0.03
+    object_measured: "financing_level_investment_return_multiple"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_CORRELATION_001"
+    notes:
+      - "Capital loss / sub-1x investor return, not company failure."
+      - "Rounded public statistic; not converted into exact counts."
+  above_5x:
+    probability: 0.10
+    tolerance: 0.015
+    object_measured: "financing_level_investment_return_multiple"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_CORRELATION_001"
+    notes:
+      - "Threshold constraint used to infer 5x-plus aggregate tail mass."
+  above_10x:
+    probability: 0.04
+    tolerance: 0.008
+    object_measured: "financing_level_investment_return_multiple"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_CORRELATION_001"
+    notes:
+      - "Primary tail threshold for S2b-a because paired 50x aggregate is available."
+  above_50x:
+    probability: 0.004
+    tolerance: 0.002
+    object_measured: "financing_level_investment_return_multiple"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_CORRELATION_001"
+    notes:
+      - "Extreme mega-winner threshold; useful for tail beta calibration."
+realized_deal_decomposition:
+  out_of_business_proxy:
+    probability: 0.39
+    tolerance: 0.04
+    object_measured: "realized_deal_out_of_business_status_proxy_for_zero_investor_moic"
+    provenance: "PROXY"
+    source_id: "SRC_CORRELATION_002"
+    notes:
+      - "Used as a proxy split for complete-loss mass, not as literal company survival."
+  positive_below_1x_proxy:
+    probability: 0.29
+    tolerance: 0.04
+    object_measured: "realized_deal_positive_but_below_capital_return_proxy"
+    provenance: "PROXY"
+    source_id: "SRC_CORRELATION_002"
+    notes:
+      - "Reported aggregate does not exactly reconcile with the 65% below-1x constraint."
+  above_1x_proxy:
+    probability: 0.32
+    tolerance: 0.04
+    object_measured: "realized_deal_above_capital_return_proxy"
+    provenance: "PROXY"
+    source_id: "SRC_CORRELATION_002"
+    notes:
+      - "Retained for audit residuals, not forced into the baseline mixture."
+tail_evidence:
+  angellist_density_exponent:
+    value: 2.3
+    object_measured: "positive_early_stage_investment_return_density_exponent"
+    provenance: "PROXY"
+    source_id: "SRC_ANGELLIST_001"
+    notes:
+      - "Converted only as a model-risk scenario beta approximately 1.3 under density alpha = beta + 1."
+  moonfire_density_exponent:
+    value: 2.05
+    object_measured: "venture_return_or_portfolio_tail_density_exponent_unverified_unit"
+    provenance: "PROXY"
+    source_id: "SRC_MOONFIRE_001"
+    notes:
+      - "Not baseline-calibrated until exact object and convention are audited."
+  derived_beta_from_10x_50x:
+    value: 1.4306765580733931
+    object_measured: "derived_investor_return_survival_tail_exponent_beta"
+    provenance: "CALIBRATED"
+    source_id: "SRC_CORRELATION_001"
+    formula: "-ln(P(X>=50)/P(X>=10)) / ln(50/10)"
+    notes:
+      - "Derived from rounded aggregate thresholds; not directly observed."
+dilution_observations:
+  seed_primary_round_median:
+    value: 0.205
+    object_measured: "primary_priced_round_dilution"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_CARTA_DILUTION_001"
+    notes:
+      - "Median only; no distribution family inferred."
+  series_a_primary_round_median:
+    value: 0.201
+    object_measured: "primary_priced_round_dilution"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_CARTA_DILUTION_001"
+    notes:
+      - "Median only; excludes SAFE/note/bridge/option-pool dilution."
+transition_observations_deferred_s2b_b:
+  seed_2022_to_series_a_24m:
+    probability: 0.17
+    object_measured: "financing_transition_24_month_cumulative_incidence"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_CARTA_TRANSITION_001"
+    notes:
+      - "Deferred; not lifetime Seed-to-A transition probability."
+  seed_2018_to_series_a_24m_low:
+    probability: 0.25
+    object_measured: "financing_transition_24_month_cumulative_incidence"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_CARTA_TRANSITION_001"
+    notes:
+      - "Lower end of healthier 2018 cohort range; deferred to S2b-b."
+  seed_2018_to_series_a_24m_high:
+    probability: 0.30
+    object_measured: "financing_transition_24_month_cumulative_incidence"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_CARTA_TRANSITION_001"
+    notes:
+      - "Upper end of healthier 2018 cohort range; deferred to S2b-b."
+  seed_to_series_a_median_days_conditional:
+    value: 766
+    object_measured: "time_to_series_a_conditional_on_series_a_occurring"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_CARTA_TIMING_001"
+    notes:
+      - "Conditional timing statistic, not unconditional event-time distribution."
+fund_level_validation_targets:
+  uk_pooled_mature_vintage_tvpi:
+    value: 1.84
+    object_measured: "fund_level_pooled_tvpi"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_BBB_001"
+    notes:
+      - "Validation target only; not investment-level calibration data."
+  us_pooled_mature_vintage_tvpi:
+    value: 1.95
+    object_measured: "fund_level_pooled_tvpi"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_BBB_001"
+    notes:
+      - "Validation target only; definitions differ from gross equal-weighted simulated portfolio MOIC."
+  uk_median_vc_tvpi:
+    value: 1.48
+    object_measured: "fund_level_median_tvpi"
+    provenance: "OBSERVED_AGGREGATE"
+    source_id: "SRC_BBB_001"
+    notes:
+      - "Validation target only; not used to force company-level parameters."
+founder_company_evidence_excluded:
+  founder_zero_proceeds_low:
+    probability: 0.84
+    object_measured: "founder_exit_proceeds_zero_probability"
+    provenance: "PROXY"
+    source_id: "SRC_AZEVEDO_001"
+    notes:
+      - "Explicitly excluded from investor-level return calibration."
+  founder_zero_proceeds_high:
+    probability: 0.88
+    object_measured: "founder_exit_proceeds_zero_probability"
+    provenance: "PROXY"
+    source_id: "SRC_AZEVEDO_001"
+    notes:
+      - "Explicitly excluded from investor-level return calibration."
+  company_or_founder_alpha:
+    value: 1.12
+    object_measured: "company_or_founder_exit_value_tail_exponent_unmapped"
+    provenance: "PROXY"
+    source_id: "SRC_AZEVEDO_001"
+    notes:
+      - "Not used as investor-MOIC Pareto shape."

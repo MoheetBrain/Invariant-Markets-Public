@@ -1,0 +1,9 @@
+extends: ../base.yaml
+scenario_name: "stress_high_correlation"
+description: "Raises the shared crisis-state probability to test concentration in systemic dependence rather than idiosyncratic defaults."
+random_seed: 20260819
+macro:
+  initial_state_probabilities:
+    normal: {value: 0.45}
+    weak: {value: 0.25}
+    crisis: {value: 0.30}

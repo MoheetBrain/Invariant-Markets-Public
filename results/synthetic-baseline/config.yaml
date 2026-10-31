@@ -1,0 +1,438 @@
+model_version: 0.2.0-synthetic
+scenario_name: baseline
+description: Five-band synthetic startup outcomes with one shared macro state per
+  portfolio; architecture testing only.
+assumption_status: SYNTHETIC_SCENARIO
+initial_principal:
+  value: 1000000
+  units: GBP
+  status: SCENARIO
+  source: Synthetic S2a baseline
+  notes: Reporting notional; all per-unit claim metrics are invariant to this scale.
+horizon_years: 10
+number_of_simulations: 5000
+random_seed: 42
+portfolio:
+  portfolio_sizes:
+  - 1
+  - 10
+  - 50
+  - 100
+  - 250
+  - 500
+  - 1000
+  - 2500
+  baseline_portfolio_size: 100
+  equal_weighted: true
+macro:
+  initial_state_probabilities:
+    normal:
+      value: 0.7
+      units: probability
+      status: SCENARIO
+      source: Synthetic S2a baseline
+      notes: Shared by every startup in a simulated portfolio.
+    weak:
+      value: 0.25
+      units: probability
+      status: SCENARIO
+      source: Synthetic S2a baseline
+      notes: Shared by every startup in a simulated portfolio.
+    crisis:
+      value: 0.05
+      units: probability
+      status: SCENARIO
+      source: Synthetic S2a baseline
+      notes: Shared by every startup in a simulated portfolio.
+  regimes:
+    normal:
+      outcome_bands:
+        total_failure:
+          probability:
+            value: 0.55
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 0.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Total failure is exactly zero.
+          maximum_return_multiple:
+            value: 0.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Total failure is exactly zero.
+        partial_recovery:
+          probability:
+            value: 0.15
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 0.2
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound inside the partial-recovery band.
+          maximum_return_multiple:
+            value: 0.8
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform upper bound inside the partial-recovery band.
+        modest_success:
+          probability:
+            value: 0.22
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 1.2
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound inside the modest-success band.
+          maximum_return_multiple:
+            value: 3.5
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform upper bound inside the modest-success band.
+        large_success:
+          probability:
+            value: 0.07
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 6.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound inside the large-success band.
+          maximum_return_multiple:
+            value: 15.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform upper bound inside the large-success band.
+        extreme_winner:
+          probability:
+            value: 0.01
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not an empirical unicorn rate.
+          minimum_return_multiple:
+            value: 25.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound above 20x.
+          maximum_return_multiple:
+            value: 60.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform synthetic tail cap.
+      follow_on_probability:
+        value: 0.35
+        units: probability
+        status: SCENARIO
+        source: Synthetic S2a event prototype
+        notes: Event prototype only.
+      exit_probability:
+        value: 0.25
+        units: probability over prototype horizon
+        status: SCENARIO
+        source: Synthetic S2a event prototype
+        notes: Event prototype only.
+    weak:
+      outcome_bands:
+        total_failure:
+          probability:
+            value: 0.7
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Higher synthetic failure probability than NORMAL.
+          minimum_return_multiple:
+            value: 0.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Total failure is exactly zero.
+          maximum_return_multiple:
+            value: 0.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Total failure is exactly zero.
+        partial_recovery:
+          probability:
+            value: 0.16
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 0.1
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound.
+          maximum_return_multiple:
+            value: 0.6
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform upper bound.
+        modest_success:
+          probability:
+            value: 0.11
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 1.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound.
+          maximum_return_multiple:
+            value: 2.5
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform upper bound.
+        large_success:
+          probability:
+            value: 0.025
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 5.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound.
+          maximum_return_multiple:
+            value: 10.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform upper bound.
+        extreme_winner:
+          probability:
+            value: 0.005
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 22.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound above 20x.
+          maximum_return_multiple:
+            value: 40.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform synthetic tail cap.
+      follow_on_probability:
+        value: 0.25
+        units: probability
+        status: SCENARIO
+        source: Synthetic S2a event prototype
+        notes: Event prototype only.
+      exit_probability:
+        value: 0.15
+        units: probability over prototype horizon
+        status: SCENARIO
+        source: Synthetic S2a event prototype
+        notes: Event prototype only.
+    crisis:
+      outcome_bands:
+        total_failure:
+          probability:
+            value: 0.85
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Highest synthetic failure probability.
+          minimum_return_multiple:
+            value: 0.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Total failure is exactly zero.
+          maximum_return_multiple:
+            value: 0.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Total failure is exactly zero.
+        partial_recovery:
+          probability:
+            value: 0.1
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 0.05
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound.
+          maximum_return_multiple:
+            value: 0.4
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform upper bound.
+        modest_success:
+          probability:
+            value: 0.045
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 1.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound.
+          maximum_return_multiple:
+            value: 1.8
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform upper bound.
+        large_success:
+          probability:
+            value: 0.004
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 5.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound.
+          maximum_return_multiple:
+            value: 8.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform upper bound.
+        extreme_winner:
+          probability:
+            value: 0.001
+            units: probability
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Architecture-test probability; not observed.
+          minimum_return_multiple:
+            value: 21.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform lower bound above 20x.
+          maximum_return_multiple:
+            value: 30.0
+            units: multiple of invested capital
+            status: SCENARIO
+            source: Synthetic S2a baseline
+            notes: Uniform synthetic tail cap.
+      follow_on_probability:
+        value: 0.1
+        units: probability
+        status: SCENARIO
+        source: Synthetic S2a event prototype
+        notes: Event prototype only.
+      exit_probability:
+        value: 0.08
+        units: probability over prototype horizon
+        status: SCENARIO
+        source: Synthetic S2a event prototype
+        notes: Event prototype only.
+guarantee:
+  protection_fractions:
+  - value: 0.0
+    units: fraction of initial principal
+    status: SCENARIO
+    source: S2a required grid
+    notes: Zero-protection invariant case.
+  - value: 0.25
+    units: fraction of initial principal
+    status: SCENARIO
+    source: S2a required grid
+    notes: Architecture-test protection level.
+  - value: 0.5
+    units: fraction of initial principal
+    status: SCENARIO
+    source: S2a required grid
+    notes: Architecture-test protection level.
+  - value: 0.75
+    units: fraction of initial principal
+    status: SCENARIO
+    source: S2a required grid
+    notes: Configured baseline protection level.
+  - value: 1.0
+    units: fraction of initial principal
+    status: SCENARIO
+    source: S2a required grid
+    notes: Full-principal architecture-test level.
+  baseline_protection_fraction:
+    value: 0.75
+    units: fraction of initial principal
+    status: SCENARIO
+    source: Synthetic S2a baseline
+    notes: Baseline grid point; not a product recommendation.
+  stop_loss_attachment_fraction:
+    value: 0.05
+    units: fraction of initial principal
+    status: SCENARIO
+    source: Synthetic S2a baseline
+    notes: Generic attachment; no provider or legal wrapper is implied.
+  stop_loss_limit_fraction:
+    value: 0.35
+    units: fraction of initial principal
+    status: SCENARIO
+    source: Synthetic S2a baseline
+    notes: Generic maximum payout; no provider or legal wrapper is implied.
+founder_warrant:
+  initial_warrant_percentage:
+    value: 0.02
+    units: fraction of startup terminal value
+    status: SCENARIO
+    source: Synthetic S2a baseline
+    notes: Illustrative initial warrant percentage; not a market term.
+  number_of_financing_rounds:
+    value: 3
+    units: count
+    status: SCENARIO
+    source: Synthetic S2a baseline
+    notes: Illustrative equal-dilution rounds.
+  dilution_percentage_per_round:
+    value: 0.2
+    units: fraction diluted per round
+    status: SCENARIO
+    source: Synthetic S2a baseline
+    notes: Applied identically in each round for q_T=q_0(1-d)^r.

@@ -1,0 +1,223 @@
+model_version: "0.3.0-s2b-a-empirical-terminal"
+scenario_name: "s2b_a_empirical_terminal_v1"
+description: "Empirically constrained terminal investment-return mixture for principal-floor claim model-risk analysis."
+assumption_status: "EMPIRICALLY_CONSTRAINED_TERMINAL_MARGINALS"
+empirical_constraints_path: "data/calibration/empirical_constraints_v1.yaml"
+source_registry_path: "data/calibration/source_registry.yaml"
+number_of_simulations: 100000
+random_seed: 20260814
+
+portfolio:
+  portfolio_sizes: [10, 50, 100, 250, 500, 1000, 2500]
+  baseline_portfolio_size: 100
+  equal_weighted: true
+
+guarantee:
+  protection_fractions: [0.25, 0.50, 0.75, 1.00]
+  baseline_protection_fraction: 0.75
+  stop_loss_attachment_fraction: 0.05
+  stop_loss_limit_fraction: 0.35
+  stop_loss_provenance: "SYNTHETIC_SCENARIO"
+
+founder_warrant:
+  initial_warrant_percentage: 0.02
+  dilution_percentages: [0.205, 0.201]
+  dilution_provenance: "OBSERVED_AGGREGATE_MEDIANS_ONLY"
+  unknown_components:
+    - "SAFE conversion dilution"
+    - "convertible note dilution"
+    - "option-pool refresh dilution"
+    - "bridge financing dilution"
+
+body_models:
+  - name: "log_uniform"
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "truncated_lognormal"
+    provenance: "MODEL_RISK_SCENARIO"
+
+tail_exponents:
+  - name: "beta_1_10"
+    survival_tail_exponent_beta: 1.10
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "beta_1_30"
+    survival_tail_exponent_beta: 1.30
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "beta_calibrated_10_50"
+    survival_tail_exponent_beta: "calibrated_from_constraints"
+    provenance: "CALIBRATED_FROM_AGGREGATE_CONSTRAINTS"
+  - name: "beta_1_60"
+    survival_tail_exponent_beta: 1.60
+    provenance: "MODEL_RISK_SCENARIO"
+
+tail_variants:
+  - name: "unbounded_pareto"
+    mode: "unbounded_pareto"
+    threshold_u: 10.0
+    cap:
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "capped_500x"
+    mode: "capped_pareto"
+    threshold_u: 10.0
+    cap: 500.0
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "capped_1000x"
+    mode: "capped_pareto"
+    threshold_u: 10.0
+    cap: 1000.0
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "truncated_1000x"
+    mode: "truncated_pareto"
+    threshold_u: 10.0
+    cap: 1000.0
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "no_mega_winner"
+    mode: "no_mega_winner"
+    threshold_u: 10.0
+    cap: 50.0
+    provenance: "MODEL_RISK_SCENARIO"
+
+correlation_specs:
+  - name: "independent"
+    model: "independent"
+    rho_macro: 0.0
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "gaussian_rho_0_00"
+    model: "gaussian_factor"
+    rho_macro: 0.0
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "gaussian_rho_0_05"
+    model: "gaussian_factor"
+    rho_macro: 0.05
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "gaussian_rho_0_10"
+    model: "gaussian_factor"
+    rho_macro: 0.10
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "gaussian_rho_0_15"
+    model: "gaussian_factor"
+    rho_macro: 0.15
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "gaussian_rho_0_20"
+    model: "gaussian_factor"
+    rho_macro: 0.20
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "gaussian_rho_0_30"
+    model: "gaussian_factor"
+    rho_macro: 0.30
+    provenance: "MODEL_RISK_SCENARIO"
+  - name: "student_t_rho_0_20_df_4"
+    model: "student_t_factor"
+    rho_macro: 0.20
+    degrees_of_freedom: 4
+    provenance: "MODEL_RISK_SCENARIO"
+
+baseline_spec_name: "baseline_log_uniform_capped1000_independent"
+full_grid_spec_names:
+  - "baseline_log_uniform_capped1000_independent"
+
+model_risk_specifications:
+  - name: "baseline_log_uniform_capped1000_independent"
+    sensitivity_dimension: "baseline"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "capped_1000x"
+    correlation_spec: "independent"
+  - name: "body_truncated_lognormal"
+    sensitivity_dimension: "body_model"
+    body_model: "truncated_lognormal"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "capped_1000x"
+    correlation_spec: "independent"
+  - name: "tail_beta_1_10"
+    sensitivity_dimension: "tail_exponent"
+    body_model: "log_uniform"
+    tail_exponent: "beta_1_10"
+    tail_variant: "capped_1000x"
+    correlation_spec: "independent"
+  - name: "tail_beta_1_30"
+    sensitivity_dimension: "tail_exponent"
+    body_model: "log_uniform"
+    tail_exponent: "beta_1_30"
+    tail_variant: "capped_1000x"
+    correlation_spec: "independent"
+  - name: "tail_beta_1_60"
+    sensitivity_dimension: "tail_exponent"
+    body_model: "log_uniform"
+    tail_exponent: "beta_1_60"
+    tail_variant: "capped_1000x"
+    correlation_spec: "independent"
+  - name: "tail_unbounded"
+    sensitivity_dimension: "tail_variant"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "unbounded_pareto"
+    correlation_spec: "independent"
+  - name: "tail_capped_500"
+    sensitivity_dimension: "tail_variant"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "capped_500x"
+    correlation_spec: "independent"
+  - name: "tail_truncated_1000"
+    sensitivity_dimension: "tail_variant"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "truncated_1000x"
+    correlation_spec: "independent"
+  - name: "tail_no_mega_winner"
+    sensitivity_dimension: "tail_variant"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "no_mega_winner"
+    correlation_spec: "independent"
+  - name: "correlation_gaussian_0_00"
+    sensitivity_dimension: "correlation"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "capped_1000x"
+    correlation_spec: "gaussian_rho_0_00"
+  - name: "correlation_gaussian_0_05"
+    sensitivity_dimension: "correlation"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "capped_1000x"
+    correlation_spec: "gaussian_rho_0_05"
+  - name: "correlation_gaussian_0_10"
+    sensitivity_dimension: "correlation"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "capped_1000x"
+    correlation_spec: "gaussian_rho_0_10"
+  - name: "correlation_gaussian_0_15"
+    sensitivity_dimension: "correlation"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "capped_1000x"
+    correlation_spec: "gaussian_rho_0_15"
+  - name: "correlation_gaussian_0_20"
+    sensitivity_dimension: "correlation"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "capped_1000x"
+    correlation_spec: "gaussian_rho_0_20"
+  - name: "correlation_gaussian_0_30"
+    sensitivity_dimension: "correlation"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "capped_1000x"
+    correlation_spec: "gaussian_rho_0_30"
+  - name: "correlation_student_t_0_20"
+    sensitivity_dimension: "correlation_stress"
+    body_model: "log_uniform"
+    tail_exponent: "beta_calibrated_10_50"
+    tail_variant: "capped_1000x"
+    correlation_spec: "student_t_rho_0_20_df_4"
+
+epistemic_uncertainty:
+  number_of_draws: 200
+  inner_paths: 2000
+  random_seed: 20260815
+  interpretation: "Tolerance-band draws from rounded aggregate statistics; not precise Bayesian posteriors."
+
+convergence:
+  path_counts: [10000, 25000, 50000, 100000, 250000]
